@@ -1,9 +1,11 @@
 package com.msjtrs.ing_app.overview
 
 import android.os.Bundle
+import android.util.Log
 import android.view.*
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProviders
+import com.msjtrs.ing_app.R
 import com.msjtrs.ing_app.databinding.FragmentOverviewBinding
 
 class OverviewFragment : Fragment() {
@@ -18,9 +20,11 @@ class OverviewFragment : Fragment() {
         binding.setLifecycleOwner(this)
 
         binding.viewModel = viewModel
-        binding.postsList.adapter;
+        binding.postsList.adapter = PostAdapter();
 
-        setHasOptionsMenu(true)
+        //setHasOptionsMenu(true)
+        //it breaks here:
         return binding.root
     }
+
 }

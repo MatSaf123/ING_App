@@ -1,5 +1,6 @@
 package com.msjtrs.ing_app
 
+import android.util.Log
 import androidx.databinding.BindingAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.msjtrs.ing_app.network.PostProperty
