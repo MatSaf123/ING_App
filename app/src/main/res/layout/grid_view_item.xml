@@ -8,21 +8,29 @@
             type="com.msjtrs.ing_app.network.PostProperty"/>
     </data>
 
-    <LinearLayout android:layout_height="100dp"
-        android:layout_width="300dp">
-        <LinearLayout android:layout_height="100dp"
-            android:layout_width="300dp">
-            <TextView
-                android:id="@+id/post_id"
-                android:layout_width="match_parent"
-                android:layout_height="170dp"
-                android:scaleType="centerCrop"
-                android:adjustViewBounds="true"
-                tools:src="@tools:sample/backgrounds/scenic"/>
-        </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <!-- test -->
         <TextView
+            android:id="@+id/post_id"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:text="@string/test" />
+            android:adjustViewBounds="true"
+            android:scaleType="centerCrop"
+            android:text="@{@string/id + property.id}" />
+
+        <!-- id + title -->
+        <TextView
+            android:id="@+id/post_title"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:adjustViewBounds="true"
+            android:scaleType="centerCrop"
+            android:text="@{@string/title + property.title}"
+            tools:src="@tools:sample/backgrounds/scenic" />
+
     </LinearLayout>
 </layout>
