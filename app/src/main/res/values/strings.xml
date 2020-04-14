@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Profile display app</string>
+    <string name="show_info">About app</string>
+    <string name="display_type">For %s</string>
+    <string name="id">id: </string>
+    <string name="title">Title: </string>
+    <string name="test">This is a test</string>
+</resources>
