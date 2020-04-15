@@ -5,4 +5,8 @@
     <string name="id">id: </string>
     <string name="title">Title: </string>
     <string name="test">This is a test</string>
+    <string name="username">Janek</string>
+    <string name="comments">Comments</string>
+    <string name="comment_image">comment_image</string>
+
 </resources>
