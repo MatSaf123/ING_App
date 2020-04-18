@@ -25,6 +25,10 @@ interface APIService {
     @GET("posts")
     fun getPosts():
             Deferred<List<PostProperty>>
+
+    @GET("users")
+    fun getUsers():
+            Deferred<List<UserProperty>>
 }
 
 object JsonplaceholderApi {

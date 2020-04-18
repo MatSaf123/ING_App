@@ -20,10 +20,8 @@ class OverviewFragment : Fragment() {
         binding.setLifecycleOwner(this)
 
         binding.viewModel = viewModel
-        binding.postsList.adapter = PostAdapter();
+        binding.postsList.adapter = PostAdapter()
 
-        //setHasOptionsMenu(true)
-        //it breaks here:
         return binding.root
     }
 

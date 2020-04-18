@@ -5,8 +5,11 @@
 
     <data>
         <variable
-            name="property"
+            name="post"
             type="com.msjtrs.ing_app.network.PostProperty"/>
+        <variable
+            name="user"
+            type="com.msjtrs.ing_app.network.UserProperty" />
     </data>
 
 
@@ -75,7 +78,7 @@
             android:adjustViewBounds="true"
             android:fontFamily="@font/roboto_condensed_light"
             android:scaleType="centerCrop"
-            android:text="@{property.title}"
+            android:text="@{post.title}"
             android:textSize="14sp" />
         </GridLayout>
 
@@ -105,7 +108,7 @@
             android:adjustViewBounds="true"
             android:fontFamily="@font/roboto_thin"
             android:scaleType="centerCrop"
-            android:text="@{property.body}"
+            android:text="@{post.body}"
             android:textSize="14sp" />
         </GridLayout>
 
