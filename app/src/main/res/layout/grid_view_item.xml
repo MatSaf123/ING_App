@@ -109,7 +109,7 @@
             android:adjustViewBounds="true"
             android:fontFamily="@font/roboto_thin"
             android:scaleType="centerCrop"
-            android:text="@{post.component4}"
+            android:text="@{post.component4()}"
             android:textSize="14sp" />
         </GridLayout>
 
@@ -148,23 +148,4 @@
         <View style="@style/Divider" />
 
     </LinearLayout>
-
-<!--    <LinearLayout-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="match_parent"-->
-<!--        android:background="@color/backgroundColor"-->
-<!--        android:orientation="vertical"-->
-<!--        android:padding="6dp">-->
-
-<!--        <TextView-->
-<!--            android:id="@+id/user_test"-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="match_parent"-->
-<!--            android:adjustViewBounds="true"-->
-<!--            android:fontFamily="@font/roboto_condensed_light"-->
-<!--            android:scaleType="centerCrop"-->
-<!--            android:text="@{user.component2()}"-->
-<!--            android:textSize="14sp" />-->
-
-<!--    </LinearLayout>-->
 </layout>

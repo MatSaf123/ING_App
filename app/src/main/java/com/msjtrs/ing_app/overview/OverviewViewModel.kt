@@ -29,7 +29,6 @@ class OverviewViewModel : ViewModel() {
     init {
         getPostProperties()
         getUserProperties()
-
     }
 
     private fun getPostProperties() {
