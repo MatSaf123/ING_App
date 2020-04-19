@@ -17,10 +17,15 @@ class OverviewFragment : Fragment() {
                               savedInstanceState: Bundle?) : View? {
 
         val binding = FragmentOverviewBinding.inflate(inflater)
+
         binding.setLifecycleOwner(this)
 
         binding.viewModel = viewModel
+
         binding.postsList.adapter = PostAdapter()
+        binding.usersList.adapter = UserAdapter()
+
+
 
         return binding.root
     }
