@@ -14,141 +14,6 @@
 
 
 
-<!--    <LinearLayout-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="match_parent"-->
-<!--        android:background="@color/backgroundColor"-->
-<!--        android:orientation="vertical"-->
-<!--        android:padding="6dp">-->
-
-<!--&lt;!&ndash;        all components - user, title, body and comments and displayed in&ndash;&gt;-->
-<!--&lt;!&ndash;        grid layout in order to display both image and text&ndash;&gt;-->
-
-<!--        &lt;!&ndash; USER &ndash;&gt;-->
-<!--        <GridLayout-->
-<!--            android:id="@+id/id_user"-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="match_parent"-->
-<!--            android:useDefaultMargins="true"-->
-<!--            android:orientation="horizontal">-->
-
-<!--            &lt;!&ndash; user image &ndash;&gt;-->
-<!--            <ImageView-->
-<!--                android:id="@+id/user_image"-->
-<!--                android:layout_width="17dp"-->
-<!--                android:layout_height="17dp"-->
-<!--                android:layout_gravity="center_horizontal"-->
-<!--                android:contentDescription="@string/comment_image"-->
-<!--                app:srcCompat="@drawable/ic_user"-->
-<!--                tools:src="@drawable/ic_user" />-->
-
-<!--            &lt;!&ndash; user text &ndash;&gt;-->
-<!--            <TextView-->
-<!--                android:id="@+id/user_text"-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="match_parent"-->
-<!--                android:fontFamily="@font/roboto"-->
-<!--                android:scaleType="centerCrop"-->
-<!--                android:text="@string/username"-->
-<!--                android:textSize="18sp" />-->
-<!--        </GridLayout>-->
-
-<!--        &lt;!&ndash; TITLE &ndash;&gt;-->
-<!--        <GridLayout-->
-<!--            android:id="@+id/id_title"-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="match_parent"-->
-<!--            android:useDefaultMargins="true"-->
-<!--            android:orientation="horizontal">-->
-
-<!--            &lt;!&ndash; title image &ndash;&gt;-->
-<!--            <ImageView-->
-<!--            android:id="@+id/title_image"-->
-<!--            android:layout_width="17dp"-->
-<!--            android:layout_height="17dp"-->
-<!--            android:layout_gravity="center_horizontal"-->
-<!--            android:contentDescription="@string/comment_image"-->
-<!--            app:srcCompat="@drawable/ic_title"-->
-<!--            tools:src="@drawable/ic_title" />-->
-
-<!--            &lt;!&ndash; title text &ndash;&gt;-->
-<!--            <TextView-->
-<!--            android:id="@+id/title_text"-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="match_parent"-->
-<!--            android:adjustViewBounds="true"-->
-<!--            android:fontFamily="@font/roboto_condensed_light"-->
-<!--            android:scaleType="centerCrop"-->
-<!--            android:text="@{post.title}"-->
-<!--            android:textSize="14sp" />-->
-<!--        </GridLayout>-->
-
-<!--        &lt;!&ndash; BODY &ndash;&gt;-->
-<!--        <GridLayout-->
-<!--        android:id="@+id/id_body"-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="match_parent"-->
-<!--        android:useDefaultMargins="true"-->
-<!--        android:orientation="horizontal">-->
-
-<!--            &lt;!&ndash; body image &ndash;&gt;-->
-<!--            <ImageView-->
-<!--            android:id="@+id/body_image"-->
-<!--            android:layout_width="17dp"-->
-<!--            android:layout_height="17dp"-->
-<!--            android:layout_gravity="center_horizontal"-->
-<!--            android:contentDescription="@string/comment_image"-->
-<!--            app:srcCompat="@drawable/ic_content"-->
-<!--            tools:src="@drawable/ic_content" />-->
-
-<!--            &lt;!&ndash; body text &ndash;&gt;-->
-<!--            <TextView-->
-<!--            android:id="@+id/body_text"-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="match_parent"-->
-<!--            android:adjustViewBounds="true"-->
-<!--            android:fontFamily="@font/roboto_thin"-->
-<!--            android:scaleType="centerCrop"-->
-<!--            android:text="@{post.body}"-->
-<!--            android:textSize="14sp" />-->
-<!--        </GridLayout>-->
-
-<!--        &lt;!&ndash; COMMENT &ndash;&gt;-->
-<!--        <GridLayout-->
-<!--            android:id="@+id/id_comment"-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="match_parent"-->
-<!--            android:useDefaultMargins="true"-->
-<!--            android:orientation="horizontal">-->
-
-<!--            &lt;!&ndash; comment image &ndash;&gt;-->
-<!--            <ImageView-->
-<!--                android:id="@+id/comment_image"-->
-<!--                android:layout_width="17dp"-->
-<!--                android:layout_height="17dp"-->
-<!--                android:layout_gravity="center_horizontal"-->
-<!--                android:contentDescription="@string/comment_image"-->
-<!--                app:srcCompat="@drawable/ic_comment"-->
-<!--                tools:src="@drawable/ic_comment" />-->
-
-<!--            &lt;!&ndash; comment text &ndash;&gt;-->
-<!--            <TextView-->
-<!--                android:id="@+id/comment_text"-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="match_parent"-->
-<!--                android:adjustViewBounds="true"-->
-<!--                android:fontFamily="@font/roboto_condensed_light"-->
-<!--                android:scaleType="centerCrop"-->
-<!--                android:text="@string/comments"-->
-<!--                android:textSize="14sp" />-->
-<!--        </GridLayout>-->
-
-<!--        &lt;!&ndash; SEPARATORS (gray horizontal lines) &ndash;&gt;-->
-<!--        <View style="@style/Divider_invisible" />-->
-<!--        <View style="@style/Divider" />-->
-
-<!--    </LinearLayout>-->
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -156,15 +21,150 @@
         android:orientation="vertical"
         android:padding="6dp">
 
-        <TextView
-            android:id="@+id/user_test"
+<!--        all components - user, title, body and comments and displayed in-->
+<!--        grid layout in order to display both image and text-->
+
+        <!-- USER -->
+        <GridLayout
+            android:id="@+id/id_user"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:useDefaultMargins="true"
+            android:orientation="horizontal">
+
+            <!-- user image -->
+            <ImageView
+                android:id="@+id/user_image"
+                android:layout_width="17dp"
+                android:layout_height="17dp"
+                android:layout_gravity="center_horizontal"
+                android:contentDescription="@string/comment_image"
+                app:srcCompat="@drawable/ic_user"
+                tools:src="@drawable/ic_user" />
+
+            <!-- user text -->
+            <TextView
+                android:id="@+id/user_text"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:fontFamily="@font/roboto"
+                android:scaleType="centerCrop"
+                android:text="@{user.component2()}"
+                android:textSize="18sp" />
+        </GridLayout>
+
+        <!-- TITLE -->
+        <GridLayout
+            android:id="@+id/id_title"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:useDefaultMargins="true"
+            android:orientation="horizontal">
+
+            <!-- title image -->
+            <ImageView
+            android:id="@+id/title_image"
+            android:layout_width="17dp"
+            android:layout_height="17dp"
+            android:layout_gravity="center_horizontal"
+            android:contentDescription="@string/comment_image"
+            app:srcCompat="@drawable/ic_title"
+            tools:src="@drawable/ic_title" />
+
+            <!-- title text -->
+            <TextView
+            android:id="@+id/title_text"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:adjustViewBounds="true"
             android:fontFamily="@font/roboto_condensed_light"
             android:scaleType="centerCrop"
-            android:text="@{user.component1()}"
+            android:text="@{post.component3()}"
             android:textSize="14sp" />
+        </GridLayout>
+
+        <!-- BODY -->
+        <GridLayout
+        android:id="@+id/id_body"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:useDefaultMargins="true"
+        android:orientation="horizontal">
+
+            <!-- body image -->
+            <ImageView
+            android:id="@+id/body_image"
+            android:layout_width="17dp"
+            android:layout_height="17dp"
+            android:layout_gravity="center_horizontal"
+            android:contentDescription="@string/comment_image"
+            app:srcCompat="@drawable/ic_content"
+            tools:src="@drawable/ic_content" />
+
+            <!-- body text -->
+            <TextView
+            android:id="@+id/body_text"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:adjustViewBounds="true"
+            android:fontFamily="@font/roboto_thin"
+            android:scaleType="centerCrop"
+            android:text="@{post.component4}"
+            android:textSize="14sp" />
+        </GridLayout>
+
+        <!-- COMMENT -->
+        <GridLayout
+            android:id="@+id/id_comment"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:useDefaultMargins="true"
+            android:orientation="horizontal">
+
+            <!-- comment image -->
+            <ImageView
+                android:id="@+id/comment_image"
+                android:layout_width="17dp"
+                android:layout_height="17dp"
+                android:layout_gravity="center_horizontal"
+                android:contentDescription="@string/comment_image"
+                app:srcCompat="@drawable/ic_comment"
+                tools:src="@drawable/ic_comment" />
+
+            <!-- comment text -->
+            <TextView
+                android:id="@+id/comment_text"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:adjustViewBounds="true"
+                android:fontFamily="@font/roboto_condensed_light"
+                android:scaleType="centerCrop"
+                android:text="@string/comments"
+                android:textSize="14sp" />
+        </GridLayout>
+
+        <!-- SEPARATORS (gray horizontal lines) -->
+        <View style="@style/Divider_invisible" />
+        <View style="@style/Divider" />
 
     </LinearLayout>
+
+<!--    <LinearLayout-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="match_parent"-->
+<!--        android:background="@color/backgroundColor"-->
+<!--        android:orientation="vertical"-->
+<!--        android:padding="6dp">-->
+
+<!--        <TextView-->
+<!--            android:id="@+id/user_test"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="match_parent"-->
+<!--            android:adjustViewBounds="true"-->
+<!--            android:fontFamily="@font/roboto_condensed_light"-->
+<!--            android:scaleType="centerCrop"-->
+<!--            android:text="@{user.component2()}"-->
+<!--            android:textSize="14sp" />-->
+
+<!--    </LinearLayout>-->
 </layout>
