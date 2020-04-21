@@ -9,6 +9,9 @@
 
 ![](https://i.imgur.com/VUXxYw7.jpg )
 
+<img src = "https://camo.githubusercontent.com/d228a3986948524a23d811ac1275d52a74e37153/68747470733a2f2f692e696d6775722e636f6d2f34556e726e63742e6a7067"
+data-canonical-src = "https://i.imgur.com/4Unrnct.jpg" width="300" height="450" />
+
 
 #### OBECNY ETAP PROJEKTU
 
