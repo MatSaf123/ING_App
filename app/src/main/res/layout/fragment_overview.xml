@@ -16,8 +16,6 @@
         tools:context="com.msjtrs.ing_app.MainActivity">
 
 
-
-
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/users_list"
             android:layout_width="0dp"
