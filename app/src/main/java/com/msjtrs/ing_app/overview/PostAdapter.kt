@@ -33,4 +33,5 @@ class PostAdapter :
         val postProperty = getItem(position)
         holder.bind(postProperty)
     }
+
 }

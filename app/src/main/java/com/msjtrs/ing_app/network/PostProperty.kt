@@ -11,6 +11,6 @@ data class PostProperty(
     val body: String
 ) : Parcelable {
 
-
+    lateinit var posterName : String
 
 }

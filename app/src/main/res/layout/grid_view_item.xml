@@ -49,7 +49,7 @@
                 android:layout_height="match_parent"
                 android:fontFamily="@font/roboto"
                 android:scaleType="centerCrop"
-                android:text="@{user.component2()}"
+                android:text="@{post.posterName}"
                 android:textSize="18sp" />
         </GridLayout>
 
