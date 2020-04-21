@@ -10,10 +10,6 @@ data-canonical-src = "https://i.imgur.com/s3oSpth.jpg" width="331" height="700" 
 <img src = "https://camo.githubusercontent.com/3498c50eb7fd4ad49f2557daa80b488514748fc0/68747470733a2f2f692e696d6775722e636f6d2f50347431745a4f2e6a7067"
 data-canonical-src = "https://i.imgur.com/P4t1tZO.jpg" width="331" height="700" />
 
-![](https://i.imgur.com/s3oSpth.jpg )
-![](https://i.imgur.com/P4t1tZO.jpg )
-
-
 
 #### OBECNY ETAP PROJEKTU
 
