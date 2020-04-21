@@ -6,10 +6,10 @@
 
 ### SCREENY
 <img src = "https://camo.githubusercontent.com/d228a3986948524a23d811ac1275d52a74e37153/68747470733a2f2f692e696d6775722e636f6d2f34556e726e63742e6a7067"
-data-canonical-src = "https://i.imgur.com/4Unrnct.jpg" width="213" height="450" />
+data-canonical-src = "https://i.imgur.com/4Unrnct.jpg" width="236" height="500" />
 
 <img src = "https://camo.githubusercontent.com/bf180b84a96771e2bd1b7ccf59e4c2478d2d8403/68747470733a2f2f692e696d6775722e636f6d2f565558785977372e6a7067"
-data-canonical-src = "https://i.imgur.com/VUXxYw7.jpg" width="213" height="450" />
+data-canonical-src = "https://i.imgur.com/VUXxYw7.jpg" width="236" height="500" />
 
 
 #### OBECNY ETAP PROJEKTU
