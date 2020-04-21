@@ -2,18 +2,17 @@
 
 ## PYTANIA
 
-1. Czy nazwę użytkownika można po prostu zhardcodować - mamy informację że każdy użytkownik ma po 10 postów i są one posortowane. Czy jest na to inny, lepszy sposób?
-2. Kwestia praw autorskich - wykorzystujemy ikony (pobrane np. stąd https://www.flaticon.com/) - napisane tam jest że ikony mogą być używane do użytków darmowych jak i komercyjnych, przy podaniu autora i strony, a także że informację taką należy umieścić na stronie opisującej aplikację. Czy w naszym przypadku chodzi o podanie takich informacji właśnie w README.md? Czy takie informacje muszą się znaleźć również w kodzie?
+1. Kwestia praw autorskich - wykorzystujemy ikony (pobrane np. stąd https://www.flaticon.com/) - napisane tam jest że ikony mogą być używane do użytków darmowych jak i komercyjnych, przy podaniu autora i strony, a także że informację taką należy umieścić na stronie opisującej aplikację. Czy w naszym przypadku chodzi o podanie takich informacji właśnie w README.md? Czy takie informacje muszą się znaleźć również w kodzie?
 
 ### SCREENY
-![](https://i.imgur.com/8292UfC.jpg )
+![](https://i.imgur.com/4Unrnct.jpg )
 
 ![](https://i.imgur.com/VUXxYw7.jpg )
 
 
 #### OBECNY ETAP PROJEKTU
 
-Działa wyświetlania wszystkich postów, nie działa wyświetlanie poprawnej nazwy użytkownika (pytanie nr 1). Obecne prace to dodanie fragmentów i naprawa wyświetlania nazwy użytkownika.
+Działa wyświetlania wszystkich postów - nazwy użytkownika który je zapostował, tytuł posta, treść(ciało) posta oraz napis 'Comments'. Obecne prace to dodanie fragmentów.
 
 <br /><hr /><br />
 
