@@ -11,11 +11,11 @@
 ![](https://i.imgur.com/VUXxYw7.jpg )
 
 
-<img src="https://imgur.com/a/YFaYE4j"/>
-
 #### OBECNY ETAP PROJEKTU
 
 Działa wyświetlania wszystkich postów, nie działa wyświetlanie poprawnej nazwy użytkownika (pytanie nr 1). Obecne prace to dodanie fragmentów i naprawa wyświetlania nazwy użytkownika.
+
+<br /><hr />
 
 
 Project consisting of displaying various information from API - https://jsonplaceholder.typicode.com/
