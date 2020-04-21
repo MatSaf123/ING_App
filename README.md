@@ -5,9 +5,9 @@
 1. Kwestia praw autorskich - wykorzystujemy ikony (pobrane np. stąd https://www.flaticon.com/) - napisane tam jest że ikony mogą być używane do użytków darmowych jak i komercyjnych, przy podaniu autora i strony, a także że informację taką należy umieścić na stronie opisującej aplikację. Czy w naszym przypadku chodzi o podanie takich informacji właśnie w README.md? Czy takie informacje muszą się znaleźć również w kodzie?
 
 ### SCREENY
-![](https://i.imgur.com/4Unrnct.jpg =300x200)
+![](https://i.imgur.com/k09rJK8.jpg)
 
-![](https://i.imgur.com/VUXxYw7.jpg =300x200)
+![](https://i.imgur.com/VUXxYw7.jpg)
 
 
 #### OBECNY ETAP PROJEKTU
