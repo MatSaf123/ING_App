@@ -5,12 +5,13 @@
 
     <data>
         <variable
+            name="user"
+            type="com.msjtrs.ing_app.network.UserProperty"/>
+        <variable
             name="post"
             type="com.msjtrs.ing_app.network.PostProperty"/>
-        <variable
-            name="user"
-            type="com.msjtrs.ing_app.network.UserProperty" />
     </data>
+
 
 
     <LinearLayout
@@ -48,7 +49,7 @@
                 android:layout_height="match_parent"
                 android:fontFamily="@font/roboto"
                 android:scaleType="centerCrop"
-                android:text="@string/username"
+                android:text="@{post.posterName}"
                 android:textSize="18sp" />
         </GridLayout>
 
@@ -78,7 +79,7 @@
             android:adjustViewBounds="true"
             android:fontFamily="@font/roboto_condensed_light"
             android:scaleType="centerCrop"
-            android:text="@{post.title}"
+            android:text="@{post.component3()}"
             android:textSize="14sp" />
         </GridLayout>
 
@@ -108,7 +109,7 @@
             android:adjustViewBounds="true"
             android:fontFamily="@font/roboto_thin"
             android:scaleType="centerCrop"
-            android:text="@{post.body}"
+            android:text="@{post.component4()}"
             android:textSize="14sp" />
         </GridLayout>
 

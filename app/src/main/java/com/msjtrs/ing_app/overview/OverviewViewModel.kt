@@ -1,6 +1,5 @@
 package com.msjtrs.ing_app.overview
 
-import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -27,9 +26,8 @@ class OverviewViewModel : ViewModel() {
     private val coroutineScope = CoroutineScope(viewModelJob + Dispatchers.Main)
 
     init {
-        getPostProperties()
         getUserProperties()
-
+        getPostProperties()
     }
 
     private fun getPostProperties() {
@@ -38,6 +36,7 @@ class OverviewViewModel : ViewModel() {
             try {
                 val listResult = getPropertiesDeferred.await()
                 _postProperties.value = listResult
+                setPosterUsername()
             }
             catch(e: Exception) {
                 _postProperties.value = ArrayList()
@@ -54,6 +53,18 @@ class OverviewViewModel : ViewModel() {
             }
             catch(e: Exception) {
                 _userProperties.value = ArrayList()
+            }
+        }
+    }
+
+
+    private fun setPosterUsername() {
+        for(post in _postProperties.value!!) {
+            for(user in userProperties.value!!) {
+                if(post.userId == user.id) {
+                    post.posterName = user.username
+                    break
+                }
             }
         }
     }
