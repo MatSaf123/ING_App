@@ -1,6 +1,8 @@
 package com.msjtrs.ing_app.network
 
 import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
+import com.msjtrs.ing_app.domain.PostProperty
+import com.msjtrs.ing_app.domain.UserProperty
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 import kotlinx.coroutines.Deferred

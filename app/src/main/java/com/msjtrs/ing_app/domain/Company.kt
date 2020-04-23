@@ -1,10 +1,10 @@
-package com.msjtrs.ing_app.network.data
+package com.msjtrs.ing_app.domain
 
 import android.os.Parcelable
 import kotlinx.android.parcel.Parcelize
 
 @Parcelize
-data class CompanyProperty(
+data class Company(
    val name : String,
    val catchPhrase: String,
    val bs: String

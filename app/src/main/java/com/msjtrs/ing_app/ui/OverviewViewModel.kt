@@ -1,11 +1,11 @@
-package com.msjtrs.ing_app.overview
+package com.msjtrs.ing_app.ui
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.msjtrs.ing_app.network.JsonplaceholderApi
-import com.msjtrs.ing_app.network.PostProperty
-import com.msjtrs.ing_app.network.UserProperty
+import com.msjtrs.ing_app.domain.PostProperty
+import com.msjtrs.ing_app.domain.UserProperty
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job

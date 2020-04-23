@@ -6,10 +6,10 @@
     <data>
         <variable
             name="user"
-            type="com.msjtrs.ing_app.network.UserProperty"/>
+            type="com.msjtrs.ing_app.domain.UserProperty"/>
         <variable
             name="post"
-            type="com.msjtrs.ing_app.network.PostProperty"/>
+            type="com.msjtrs.ing_app.domain.PostProperty"/>
     </data>
 
 
