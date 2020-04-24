@@ -12,7 +12,13 @@ import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
 import java.lang.Exception
 
+enum class appStatus { LOADING, ERROR, DONE }
+
 class OverviewViewModel : ViewModel() {
+
+    private val _status = MutableLiveData<appStatus>()
+    val status: LiveData<appStatus>
+        get() = _status
 
     private val _postProperties = MutableLiveData<List<PostProperty>>()
     val postProperties: LiveData<List<PostProperty>>
@@ -48,10 +54,13 @@ class OverviewViewModel : ViewModel() {
         coroutineScope.launch {
             val getPropertiesDeferred = JsonplaceholderApi.retrofitService.getUsers()
             try {
+                _status.value = appStatus.LOADING
                 val listResult = getPropertiesDeferred.await()
+                _status.value = appStatus.DONE
                 _userProperties.value = listResult
             }
             catch(e: Exception) {
+                _status.value = appStatus.ERROR
                 _userProperties.value = ArrayList()
             }
         }
