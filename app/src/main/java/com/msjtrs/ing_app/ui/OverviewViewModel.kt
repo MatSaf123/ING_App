@@ -69,26 +69,17 @@ class OverviewViewModel : ViewModel() {
             }
         }
     }
-
+    
     private fun setPosterUsername() {
         for(post in _postProperties.value!!) {
-            for(user in userProperties.value!!) {
-                if(post.userId == user.id) {
-                    post.posterName = user.username
-                    break
-                }
-            }
+            post.posterName = _userProperties.value?.get(post.userId.toInt()-1)?.username.toString()
         }
     }
 
-    protected fun attachCommentCountToPosts() {
-        for(comment in commentProperties.value!!) {
-            for(post in _postProperties.value!!) {
-                if(comment.postId == post.id) {
-                    post.commentCount = post.commentCount+1
-                    break
-                }
-            }
+    private fun attachCommentCountToPosts() {
+        for(comment in _commentProperties.value!!) {
+            _postProperties.value?.get(comment.postId.toInt()-1)?.commentCount =
+                _postProperties.value?.get(comment.postId.toInt()-1)?.commentCount?.plus(1)!!
         }
     }
 
