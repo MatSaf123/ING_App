@@ -139,8 +139,7 @@
                 android:adjustViewBounds="true"
                 android:fontFamily="@font/roboto_condensed_light"
                 android:scaleType="centerCrop"
-                android:text="@string/comments"
-                android:textSize="14sp" />
+                android:text="@{`Comments: ` + Integer.toString(post.commentCount)}"                android:textSize="14sp" />
         </GridLayout>
 
         <!-- SEPARATORS (gray horizontal lines) -->

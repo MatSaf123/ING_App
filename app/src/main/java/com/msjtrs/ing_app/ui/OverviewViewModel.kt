@@ -1,8 +1,10 @@
 package com.msjtrs.ing_app.ui
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.msjtrs.ing_app.domain.CommentProperty
 import com.msjtrs.ing_app.network.JsonplaceholderApi
 import com.msjtrs.ing_app.domain.PostProperty
 import com.msjtrs.ing_app.domain.UserProperty
@@ -12,12 +14,12 @@ import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
 import java.lang.Exception
 
-enum class appStatus { LOADING, ERROR, DONE }
+enum class AppStatus { LOADING, ERROR, DONE }
 
 class OverviewViewModel : ViewModel() {
 
-    private val _status = MutableLiveData<appStatus>()
-    val status: LiveData<appStatus>
+    private val _status = MutableLiveData<AppStatus>()
+    val status: LiveData<AppStatus>
         get() = _status
 
     private val _postProperties = MutableLiveData<List<PostProperty>>()
@@ -28,50 +30,62 @@ class OverviewViewModel : ViewModel() {
     val userProperties: LiveData<List<UserProperty>>
         get() = _userProperties
 
+    private val _commentProperties = MutableLiveData<List<CommentProperty>>()
+    val commentProperties: LiveData<List<CommentProperty>>
+        get() = _commentProperties
+
+
     private var viewModelJob = Job()
     private val coroutineScope = CoroutineScope(viewModelJob + Dispatchers.Main)
 
     init {
-        getUserProperties()
-        getPostProperties()
+        getData()
     }
 
-    private fun getPostProperties() {
+    private fun getData() {
         coroutineScope.launch {
-            val getPropertiesDeferred = JsonplaceholderApi.retrofitService.getPosts()
+            val users = JsonplaceholderApi.retrofitService.getUsers()
+            val comments = JsonplaceholderApi.retrofitService.getComments()
+            val posts = JsonplaceholderApi.retrofitService.getPosts()
             try {
-                val listResult = getPropertiesDeferred.await()
-                _postProperties.value = listResult
+                _status.value = AppStatus.LOADING
+                val listUsers = users.await()
+                val listComments = comments.await()
+                val listPosts = posts.await()
+                _status.value = AppStatus.DONE
+
+                _userProperties.value = listUsers
+                _commentProperties.value = listComments
+                _postProperties.value = listPosts
+
                 setPosterUsername()
+                attachCommentCountToPosts()
             }
             catch(e: Exception) {
+                _status.value = AppStatus.ERROR
+                _userProperties.value = ArrayList()
+                _commentProperties.value = ArrayList()
                 _postProperties.value = ArrayList()
             }
         }
     }
-
-    private fun getUserProperties() {
-        coroutineScope.launch {
-            val getPropertiesDeferred = JsonplaceholderApi.retrofitService.getUsers()
-            try {
-                _status.value = appStatus.LOADING
-                val listResult = getPropertiesDeferred.await()
-                _status.value = appStatus.DONE
-                _userProperties.value = listResult
-            }
-            catch(e: Exception) {
-                _status.value = appStatus.ERROR
-                _userProperties.value = ArrayList()
-            }
-        }
-    }
-
 
     private fun setPosterUsername() {
         for(post in _postProperties.value!!) {
             for(user in userProperties.value!!) {
                 if(post.userId == user.id) {
                     post.posterName = user.username
+                    break
+                }
+            }
+        }
+    }
+
+    protected fun attachCommentCountToPosts() {
+        for(comment in commentProperties.value!!) {
+            for(post in _postProperties.value!!) {
+                if(comment.postId == post.id) {
+                    post.commentCount = post.commentCount+1
                     break
                 }
             }

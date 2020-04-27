@@ -12,5 +12,5 @@ data class PostProperty(
 ) : Parcelable {
 
     lateinit var posterName : String
-
+    var commentCount : Int = 0
 }

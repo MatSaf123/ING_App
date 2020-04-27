@@ -1,6 +1,7 @@
 package com.msjtrs.ing_app.network
 
 import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
+import com.msjtrs.ing_app.domain.CommentProperty
 import com.msjtrs.ing_app.domain.PostProperty
 import com.msjtrs.ing_app.domain.UserProperty
 import com.squareup.moshi.Moshi
@@ -31,6 +32,10 @@ interface APIService {
     @GET("users")
     fun getUsers():
             Deferred<List<UserProperty>>
+
+    @GET("comments")
+    fun getComments():
+            Deferred<List<CommentProperty>>
 }
 
 object JsonplaceholderApi {

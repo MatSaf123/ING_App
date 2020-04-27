@@ -6,23 +6,20 @@ import androidx.databinding.BindingAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.msjtrs.ing_app.R
 import com.msjtrs.ing_app.domain.PostProperty
-import com.msjtrs.ing_app.domain.UserProperty
-import com.msjtrs.ing_app.adapters.PostAdapter
-import com.msjtrs.ing_app.adapters.UserAdapter
-import com.msjtrs.ing_app.ui.appStatus
+import com.msjtrs.ing_app.ui.AppStatus
 
 @BindingAdapter("appStatus")
-fun bindStatus(statusImageView: ImageView, status: appStatus?) {
+fun bindStatus(statusImageView: ImageView, status: AppStatus?) {
     when (status) {
-        appStatus.LOADING -> {
+        AppStatus.LOADING -> {
             statusImageView.visibility = View.VISIBLE
             statusImageView.setImageResource(R.drawable.ic_loading)
         }
-        appStatus.ERROR -> {
+        AppStatus.ERROR -> {
             statusImageView.visibility = View.VISIBLE
             statusImageView.setImageResource(R.drawable.ic_error)
         }
-        appStatus.DONE -> {
+        AppStatus.DONE -> {
             statusImageView.visibility = View.GONE
         }
     }
