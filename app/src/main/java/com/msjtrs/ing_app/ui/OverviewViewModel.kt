@@ -8,9 +8,7 @@ import com.msjtrs.ing_app.domain.CommentProperty
 import com.msjtrs.ing_app.network.JsonplaceholderApi
 import com.msjtrs.ing_app.domain.PostProperty
 import com.msjtrs.ing_app.domain.UserProperty
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.Job
+import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.launch
 import java.lang.Exception
 
@@ -34,24 +32,17 @@ class OverviewViewModel : ViewModel() {
     val commentProperties: LiveData<List<CommentProperty>>
         get() = _commentProperties
 
-
-    private var viewModelJob = Job()
-    private val coroutineScope = CoroutineScope(viewModelJob + Dispatchers.Main)
-
     init {
         getData()
     }
 
     private fun getData() {
-        coroutineScope.launch {
-            val users = JsonplaceholderApi.retrofitService.getUsers()
-            val comments = JsonplaceholderApi.retrofitService.getComments()
-            val posts = JsonplaceholderApi.retrofitService.getPosts()
+        viewModelScope.launch {
             try {
                 _status.value = AppStatus.LOADING
-                val listUsers = users.await()
-                val listComments = comments.await()
-                val listPosts = posts.await()
+                val listUsers = JsonplaceholderApi.retrofitService.getUsers().await()
+                val listComments = JsonplaceholderApi.retrofitService.getComments().await()
+                val listPosts = JsonplaceholderApi.retrofitService.getPosts().await()
                 _status.value = AppStatus.DONE
 
                 _userProperties.value = listUsers
@@ -81,10 +72,5 @@ class OverviewViewModel : ViewModel() {
             _postProperties.value?.get(comment.postId.toInt()-1)?.commentCount =
                 _postProperties.value?.get(comment.postId.toInt()-1)?.commentCount?.plus(1)!!
         }
-    }
-
-    override fun onCleared() {
-        super.onCleared()
-        viewModelJob.cancel()
     }
 }
