@@ -23,19 +23,13 @@
         tools:context=".DetailFragment">
 
 
-
-        <!--to display API info-->
-        <!--            android:text="@{viewModel.selectedProperty.component2()}"-->
-
-        <!-- user text -->
-        <!-- user text -->
         <TextView
             android:id="@+id/user_text"
-            android:layout_width="91dp"
+            android:layout_width="300dp"
             android:layout_height="30dp"
             android:fontFamily="@font/roboto"
             android:scaleType="centerCrop"
-            android:text="@{viewModel.selectedProperty.posterName}"
+            android:text="@{`Username: ` + viewModel.selectedProperty.posterName}"
             android:textSize="18sp" />
 
         <TextView
@@ -44,7 +38,7 @@
             android:layout_height="30dp"
             android:fontFamily="@font/roboto"
             android:scaleType="centerCrop"
-            android:text="@{viewModel.selectedProperty.posterEmail}"
+            android:text="@{`E-mail: ` + viewModel.selectedProperty.posterEmail}"
             android:textSize="18sp" />
 
         <TextView
@@ -53,7 +47,7 @@
             android:layout_height="30dp"
             android:fontFamily="@font/roboto"
             android:scaleType="centerCrop"
-            android:text="@{viewModel.selectedProperty.posterWebsite}"
+            android:text="@{`Website: ` + viewModel.selectedProperty.posterWebsite}"
             android:textSize="18sp" />
 
         <TextView
@@ -62,7 +56,7 @@
             android:layout_height="30dp"
             android:fontFamily="@font/roboto"
             android:scaleType="centerCrop"
-            android:text="@string/user_street"
+            android:text="@{`Street: ` + viewModel.selectedProperty.posterStreet}"
             android:textSize="18sp" />
 
         <TextView
@@ -71,7 +65,7 @@
             android:layout_height="30dp"
             android:fontFamily="@font/roboto"
             android:scaleType="centerCrop"
-            android:text="@string/user_city"
+            android:text="@{`City: ` + viewModel.selectedProperty.posterCity}"
             android:textSize="18sp" />
 
         <TextView
@@ -80,16 +74,26 @@
             android:layout_height="30dp"
             android:fontFamily="@font/roboto"
             android:scaleType="centerCrop"
-            android:text="@string/user_zipcode"
+            android:text="@{`Zipcode: ` + viewModel.selectedProperty.posterZipcode}"
             android:textSize="18sp" />
 
-        <ImageView
-            android:id="@+id/user_image"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:contentDescription="@string/comment_image"
-            app:srcCompat="@drawable/ic_user"
-            tools:src="@drawable/ic_user" />
+        <TextView
+            android:id="@+id/user_latitude"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:fontFamily="@font/roboto"
+            android:scaleType="centerCrop"
+            android:text="@{`Latitude: ` + viewModel.selectedProperty.posterGeoLatitude}"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/user_longtitude"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:fontFamily="@font/roboto"
+            android:scaleType="centerCrop"
+            android:text="@{`Longtitude: ` + viewModel.selectedProperty.posterGeoLongtitude}"
+            android:textSize="18sp" />
 
         <TextView
             android:id="@+id/user_photos"

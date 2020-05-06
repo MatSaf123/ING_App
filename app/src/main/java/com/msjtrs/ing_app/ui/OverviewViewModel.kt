@@ -71,10 +71,12 @@ class OverviewViewModel : ViewModel() {
                 if(post.userId == user.id) {
                     post.posterName = user.username
                     post.posterEmail = user.email
-                    post.posterAddress = user.address
-                    post.posterPhone = user.phone
                     post.posterWebsite = user.website
-                    post.posterCompany = user.company
+                    post.posterStreet = user.address.street
+                    post.posterCity = user.address.city
+                    post.posterZipcode = user.address.zipcode
+                    post.posterGeoLatitude = user.address.geo.lat
+                    post.posterGeoLongtitude = user.address.geo.lng
                     break
                 }
             }

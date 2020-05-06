@@ -12,11 +12,16 @@ data class PostProperty(
 ) : Parcelable {
 
     lateinit var posterName : String
-    var commentCount : Int = 0
     lateinit var posterEmail: String
-    lateinit var posterAddress: Address
-    lateinit var posterPhone: String
     lateinit var posterWebsite: String
-    lateinit var posterCompany: Company
+    lateinit var posterStreet: String
+    lateinit var posterCity: String
+    lateinit var posterZipcode: String
+    lateinit var posterGeoLatitude: String
+    lateinit var posterGeoLongtitude: String
+    var commentCount : Int = 0
+
+
+
 
 }
