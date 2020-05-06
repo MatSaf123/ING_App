@@ -32,6 +32,10 @@ class OverviewViewModel : ViewModel() {
     val commentProperties: LiveData<List<CommentProperty>>
         get() = _commentProperties
 
+    private val _navigateToSelectedProperty = MutableLiveData<PostProperty>()
+    val navigateToSelectedProperty: LiveData<PostProperty>
+        get() = _navigateToSelectedProperty
+
     init {
         getData()
     }
@@ -60,10 +64,20 @@ class OverviewViewModel : ViewModel() {
             }
         }
     }
-    
+
     private fun setPosterUsername() {
         for(post in _postProperties.value!!) {
-            post.posterName = _userProperties.value?.get(post.userId.toInt()-1)?.username.toString()
+            for(user in userProperties.value!!) {
+                if(post.userId == user.id) {
+                    post.posterName = user.username
+                    post.posterEmail = user.email
+                    post.posterAddress = user.address
+                    post.posterPhone = user.phone
+                    post.posterWebsite = user.website
+                    post.posterCompany = user.company
+                    break
+                }
+            }
         }
     }
 
@@ -72,5 +86,13 @@ class OverviewViewModel : ViewModel() {
             _postProperties.value?.get(comment.postId.toInt()-1)?.commentCount =
                 _postProperties.value?.get(comment.postId.toInt()-1)?.commentCount?.plus(1)!!
         }
+    }
+
+    fun displayPropertyDetails(postProperty: PostProperty){
+        _navigateToSelectedProperty.value = postProperty
+    }
+
+    fun displayPropertyDetailsComplete(){
+        _navigateToSelectedProperty.value = null
     }
 }

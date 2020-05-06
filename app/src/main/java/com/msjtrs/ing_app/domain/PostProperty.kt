@@ -13,4 +13,10 @@ data class PostProperty(
 
     lateinit var posterName : String
     var commentCount : Int = 0
+    lateinit var posterEmail: String
+    lateinit var posterAddress: Address
+    lateinit var posterPhone: String
+    lateinit var posterWebsite: String
+    lateinit var posterCompany: Company
+
 }

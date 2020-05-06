@@ -9,4 +9,12 @@
     <string name="comments">Comments</string>
     <string name="comment_image">comment_image</string>
 
+    <string name="user_username">Username</string>
+    <string name="user_email">Email</string>
+    <string name="user_website">Website</string>
+    <string name="user_street">Street</string>
+    <string name="user_city">City</string>
+    <string name="user_zipcode">Zipcode</string>
+    <string name="user_photos">Photos</string>
+
 </resources>

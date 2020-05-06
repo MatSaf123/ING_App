@@ -9,10 +9,8 @@ import com.msjtrs.ing_app.databinding.GridViewItemBinding
 import androidx.recyclerview.widget.DiffUtil
 
 
-class PostAdapter :
-    ListAdapter<PostProperty, PostAdapter.PostViewHolder>(
-        DiffCallback
-    ) {
+class PostAdapter(private val onClickListener: OnClickListener) :
+    ListAdapter<PostProperty, PostAdapter.PostViewHolder>(DiffCallback) {
 
     class PostViewHolder(private var binding : GridViewItemBinding) :
         RecyclerView.ViewHolder(binding.root) {
@@ -28,14 +26,20 @@ class PostAdapter :
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PostViewHolder {
-        return PostViewHolder(
-            GridViewItemBinding.inflate(LayoutInflater.from(parent.context))
+        return PostViewHolder(GridViewItemBinding.inflate(LayoutInflater.from(parent.context))
         )
     }
 
     override fun onBindViewHolder(holder: PostViewHolder, position: Int) {
         val postProperty = getItem(position)
+        holder.itemView.setOnClickListener(){
+            onClickListener.onClick(postProperty)
+        }
         holder.bind(postProperty)
+    }
+
+    class OnClickListener(val clickListener: (postProperty: PostProperty) -> Unit){
+        fun onClick(postProperty: PostProperty) = clickListener(postProperty)
     }
 
 }

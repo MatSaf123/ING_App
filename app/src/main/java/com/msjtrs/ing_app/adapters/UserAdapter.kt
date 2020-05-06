@@ -10,9 +10,7 @@ import androidx.recyclerview.widget.DiffUtil
 
 
 class UserAdapter :
-    ListAdapter<UserProperty, UserAdapter.PostViewHolder>(
-        DiffCallback
-    ) {
+    ListAdapter<UserProperty, UserAdapter.PostViewHolder>(DiffCallback) {
 
     class PostViewHolder(private var binding : GridViewItemBinding) :
         RecyclerView.ViewHolder(binding.root) {
@@ -28,8 +26,7 @@ class UserAdapter :
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PostViewHolder {
-        return PostViewHolder(
-            GridViewItemBinding.inflate(LayoutInflater.from(parent.context))
+        return PostViewHolder(GridViewItemBinding.inflate(LayoutInflater.from(parent.context))
         )
     }
 

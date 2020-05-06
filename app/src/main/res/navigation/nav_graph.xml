@@ -11,6 +11,18 @@
         android:name="com.msjtrs.ing_app.ui.OverviewFragment"
         android:label="fragment_overview"
         tools:layout="@layout/fragment_overview" >
+        <action
+            android:id="@+id/action_showDetail"
+            app:destination="@id/detailFragment" />
     </fragment>
 
+    <fragment
+        android:id="@+id/detailFragment"
+        android:name="com.msjtrs.ing_app.detail.DetailFragment"
+        android:label="fragment_detail"
+        tools:layout="@layout/fragment_detail">
+        <argument
+            android:name="selectedProperty"
+            app:argType="com.msjtrs.ing_app.domain.PostProperty"/>
+    </fragment>
 </navigation>
