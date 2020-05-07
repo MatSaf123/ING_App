@@ -3,8 +3,6 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <!-- TODO (02) Add <data> declaration with DetailViewModel binding variable -->
-
     <data>
         <variable
             name="viewModel"
@@ -22,7 +20,7 @@
         android:padding="6dp"
         tools:context=".DetailFragment">
 
-
+        <!-- username -->
         <TextView
             android:id="@+id/user_text"
             android:layout_width="300dp"
@@ -30,8 +28,10 @@
             android:fontFamily="@font/roboto"
             android:scaleType="centerCrop"
             android:text="@{`Username: ` + viewModel.selectedProperty.posterName}"
+            tools:text="@string/user_username"
             android:textSize="18sp" />
 
+        <!-- email -->
         <TextView
             android:id="@+id/user_email"
             android:layout_width="wrap_content"
@@ -39,8 +39,10 @@
             android:fontFamily="@font/roboto"
             android:scaleType="centerCrop"
             android:text="@{`E-mail: ` + viewModel.selectedProperty.posterEmail}"
+            tools:text="@string/user_email"
             android:textSize="18sp" />
 
+        <!-- website -->
         <TextView
             android:id="@+id/user_website"
             android:layout_width="wrap_content"
@@ -48,8 +50,10 @@
             android:fontFamily="@font/roboto"
             android:scaleType="centerCrop"
             android:text="@{`Website: ` + viewModel.selectedProperty.posterWebsite}"
+            tools:text="@string/user_website"
             android:textSize="18sp" />
 
+        <!-- street -->
         <TextView
             android:id="@+id/user_street"
             android:layout_width="wrap_content"
@@ -57,8 +61,10 @@
             android:fontFamily="@font/roboto"
             android:scaleType="centerCrop"
             android:text="@{`Street: ` + viewModel.selectedProperty.posterStreet}"
+            tools:text="@string/user_street"
             android:textSize="18sp" />
 
+        <!-- city -->
         <TextView
             android:id="@+id/user_city"
             android:layout_width="wrap_content"
@@ -66,8 +72,10 @@
             android:fontFamily="@font/roboto"
             android:scaleType="centerCrop"
             android:text="@{`City: ` + viewModel.selectedProperty.posterCity}"
+            tools:text="@string/user_city"
             android:textSize="18sp" />
 
+        <!-- zip-code -->
         <TextView
             android:id="@+id/user_zipcode"
             android:layout_width="wrap_content"
@@ -75,8 +83,10 @@
             android:fontFamily="@font/roboto"
             android:scaleType="centerCrop"
             android:text="@{`Zipcode: ` + viewModel.selectedProperty.posterZipcode}"
+            tools:text="@string/user_zipcode"
             android:textSize="18sp" />
 
+        <!-- latitude -->
         <TextView
             android:id="@+id/user_latitude"
             android:layout_width="wrap_content"
@@ -84,25 +94,29 @@
             android:fontFamily="@font/roboto"
             android:scaleType="centerCrop"
             android:text="@{`Latitude: ` + viewModel.selectedProperty.posterGeoLatitude}"
+            tools:text="@string/user_latitude"
             android:textSize="18sp" />
 
+        <!-- Longitude -->
         <TextView
-            android:id="@+id/user_longtitude"
+            android:id="@+id/user_Longitude"
             android:layout_width="wrap_content"
             android:layout_height="30dp"
             android:fontFamily="@font/roboto"
             android:scaleType="centerCrop"
-            android:text="@{`Longtitude: ` + viewModel.selectedProperty.posterGeoLongtitude}"
+            android:text="@{`Longitude: ` + viewModel.selectedProperty.posterGeoLongitude}"
+            tools:text="@string/user_longitude"
             android:textSize="18sp" />
 
+        <!-- loading - soon to be google map based on latitude and longitude -->
         <ImageView
             android:id="@+id/user_geo"
             android:layout_width="300dp"
-            android:layout_height="400dp"
+            android:layout_height="350dp"
             android:layout_gravity="center_horizontal"
-            app:srcCompat="@drawable/ic_loading" />
+            app:srcCompat="@drawable/loading_animation" />
 
-
+        <!-- photos -->
         <TextView
             android:id="@+id/user_photos"
             android:layout_width="wrap_content"
@@ -110,6 +124,7 @@
             android:fontFamily="@font/roboto"
             android:scaleType="centerCrop"
             android:text="@string/user_photos"
+            tools:text="@string/user_photos"
             android:textSize="18sp" />
     </LinearLayout>
 </layout>

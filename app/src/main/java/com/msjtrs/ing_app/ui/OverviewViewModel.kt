@@ -75,7 +75,7 @@ class OverviewViewModel : ViewModel() {
                     post.posterCity = user.address.city
                     post.posterZipcode = user.address.zipcode
                     post.posterGeoLatitude = user.address.geo.lat
-                    post.posterGeoLongtitude = user.address.geo.lng
+                    post.posterGeoLongitude = user.address.geo.lng
                     break
                 }
             }

@@ -18,7 +18,7 @@ data class PostProperty(
     lateinit var posterCity: String
     lateinit var posterZipcode: String
     lateinit var posterGeoLatitude: String
-    lateinit var posterGeoLongtitude: String
+    lateinit var posterGeoLongitude: String
     var commentCount : Int = 0
 
 

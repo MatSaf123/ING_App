@@ -50,6 +50,7 @@
                 android:fontFamily="@font/roboto"
                 android:scaleType="centerCrop"
                 android:text="@{post.posterName}"
+                tools:text="@string/user_username"
                 android:textSize="18sp" />
         </GridLayout>
 
