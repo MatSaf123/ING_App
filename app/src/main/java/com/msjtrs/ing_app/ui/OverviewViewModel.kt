@@ -1,6 +1,5 @@
 package com.msjtrs.ing_app.ui
 
-import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -53,7 +52,7 @@ class OverviewViewModel : ViewModel() {
                 _commentProperties.value = listComments
                 _postProperties.value = listPosts
 
-                setPosterUsername()
+                setPosterProperties()
                 attachCommentCountToPosts()
             }
             catch(e: Exception) {
@@ -65,7 +64,7 @@ class OverviewViewModel : ViewModel() {
         }
     }
 
-    private fun setPosterUsername() {
+    private fun setPosterProperties() {
         for(post in _postProperties.value!!) {
             for(user in userProperties.value!!) {
                 if(post.userId == user.id) {

@@ -60,10 +60,12 @@ dependencies {
     implementation "android.arch.navigation:navigation-fragment-ktx:1.0.0"
     implementation "android.arch.navigation:navigation-ui-ktx:1.0.0"
 
+    // Recycler View
     implementation "androidx.lifecycle:lifecycle-extensions:2.0.0"
-
     implementation "androidx.recyclerview:recyclerview:1.1.0"
 
+    // Timber
     implementation 'com.jakewharton.timber:timber:4.7.1'
+
 
 }

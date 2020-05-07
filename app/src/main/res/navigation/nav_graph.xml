@@ -18,7 +18,7 @@
 
     <fragment
         android:id="@+id/detailFragment"
-        android:name="com.msjtrs.ing_app.detail.DetailFragment"
+        android:name="com.msjtrs.ing_app.ui.UserDetailFragment"
         android:label="fragment_detail"
         tools:layout="@layout/fragment_detail">
         <argument

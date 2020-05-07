@@ -8,7 +8,7 @@
     <data>
         <variable
             name="viewModel"
-            type="com.msjtrs.ing_app.detail.DetailViewModel"/>
+            type="com.msjtrs.ing_app.ui.UserDetailViewModel"/>
         <variable
             name="post"
             type="com.msjtrs.ing_app.domain.PostProperty"/>
@@ -94,6 +94,14 @@
             android:scaleType="centerCrop"
             android:text="@{`Longtitude: ` + viewModel.selectedProperty.posterGeoLongtitude}"
             android:textSize="18sp" />
+
+        <ImageView
+            android:id="@+id/user_geo"
+            android:layout_width="300dp"
+            android:layout_height="400dp"
+            android:layout_gravity="center_horizontal"
+            app:srcCompat="@drawable/ic_loading" />
+
 
         <TextView
             android:id="@+id/user_photos"
