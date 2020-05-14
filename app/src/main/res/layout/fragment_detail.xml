@@ -86,36 +86,21 @@
             tools:text="@string/user_zipcode"
             android:textSize="18sp" />
 
-        <!-- latitude -->
-        <TextView
-            android:id="@+id/user_latitude"
-            android:layout_width="wrap_content"
-            android:layout_height="30dp"
-            android:fontFamily="@font/roboto"
-            android:scaleType="centerCrop"
-            android:text="@{`Latitude: ` + viewModel.selectedProperty.posterGeoLatitude}"
-            tools:text="@string/user_latitude"
-            android:textSize="18sp" />
 
-        <!-- Longitude -->
-        <TextView
-            android:id="@+id/user_Longitude"
-            android:layout_width="wrap_content"
-            android:layout_height="30dp"
-            android:fontFamily="@font/roboto"
-            android:scaleType="centerCrop"
-            android:text="@{`Longitude: ` + viewModel.selectedProperty.posterGeoLongitude}"
-            tools:text="@string/user_longitude"
-            android:textSize="18sp" />
-
-        <!-- loading - soon to be google map based on latitude and longitude -->
-        <ImageView
-            android:id="@+id/user_geo"
+        <!-- google map -->
+        <com.google.android.gms.maps.MapView
+            android:id="@+id/map_view"
             android:layout_width="300dp"
-            android:layout_height="350dp"
-            android:layout_gravity="center_horizontal"
-            app:srcCompat="@drawable/loading_animation" />
+            android:layout_height="400dp"
+            android:layout_marginTop="24dp"
+            android:layout_gravity="center_horizontal" />
 
+        <!-- SEPARATORS (gray horizontal lines) -->
+        <View style="@style/Divider_invisible" />
+        <View style="@style/Divider" />
+        <View style="@style/Divider_invisible" />
+
+        <!--        TODO  implement photos on button click      -->
         <!-- photos -->
         <TextView
             android:id="@+id/user_photos"

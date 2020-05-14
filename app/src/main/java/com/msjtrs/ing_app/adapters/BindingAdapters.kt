@@ -10,6 +10,7 @@ import com.msjtrs.ing_app.domain.PostProperty
 import com.msjtrs.ing_app.domain.UserProperty
 import com.msjtrs.ing_app.ui.AppStatus
 
+
 @BindingAdapter("appStatus")
 fun bindStatus(statusImageView: ImageView, status: AppStatus?) {
     when (status) {
@@ -39,4 +40,3 @@ fun bindUserData(recyclerView: RecyclerView, data: List<UserProperty>?) {
     val adapter = recyclerView.adapter as UserAdapter
     adapter.submitList(data)
 }
-

@@ -52,6 +52,11 @@
             tools:listitem="@layout/grid_view_item">
         </androidx.recyclerview.widget.RecyclerView>
 
+
+
+
+
+
         <ImageView
             android:id="@+id/status_image"
             android:layout_width="300dp"

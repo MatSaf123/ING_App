@@ -1,4 +1,4 @@
-# Profile Display App
+﻿# Profile Display App
 
 ## PYTANIA
 \-
@@ -17,18 +17,22 @@ data-canonical-src = "https://i.imgur.com/P4t1tZO.jpg" width="331" height="700" 
 
 #### OBECNY ETAP PROJEKTU
 
-Działa wyświetlania wszystkich postów - nazwy użytkownika który je zapostował, tytuł posta, treść(ciało) posta oraz napis 'Comments'.
+Działa wyświetlania wszystkich postów - nazwy użytkownika który je zapostował, tytuł posta, treść(ciało) posta oraz liczba komentarzy dla danego posta.
 
-Po kliknięciu w cały post aplikacja przenosi się do fragmentu wyświetlającego nazwę użytkownika, e-mail, stronę internetową, ulicę, miasto, kod pocztowy, szerokość i długość geograficzną, ikonę ładowania(w przyszłości zaplanowana jest implementacja widoku z Google Maps) oraz napis Photos(w przyszłości zaplanowana implementacja przeniesienia do albumu ze zdjęciami użytkownika).
+Po kliknięciu w nazwę autora postu przenosi się do fragmentu wyświetlającego nazwę użytkownika, e-mail, stronę internetową, ulicę, miasto, kod pocztowy, szerokość i długość geograficzną, fragment mapy (Google Maps) z zaznaczoną lokalizacją użytkownika.
+
+W przypadku błędu przy próbie pobrania danych z API, aplikacja wyrzuca komunikat o błędzie.
 
 TODO:
-- [ ] Sprawienie aby klikalna była nazwa użytkownika, nie cały post
+- [x] Sprawienie aby klikalna była nazwa użytkownika, nie cały post
 - [x] Dodanie fragmentu z informacjami o użytkowniku 
-- [ ] Przerobienie wartości długości i szerokości geograficznej na widok z Google Maps
+- [x] Przerobienie wartości długości i szerokości geograficznej na widok z Google Maps
 - [ ] Dodanie fragmentu na komentarze
-- [ ] Dodanie fragmentu na zdjęcia użytkownika
+- [ ] Dodanie fragmentu na zdjęcia użytkownika + połączenie go z guzikiem w profilu użytkownika
 - [ ] Dodanie menu z informacji o autorach + informacji o źródle assetów z internetu
 - [ ] Dodanie testów
+- [ ] Stronicowanie postów
+- [ ] Rozszerzenie obsługi wyjątków
 - [ ] Ogólne prace związane z poprawą wyglądu aplikacji
 
 <br /><hr /><br />

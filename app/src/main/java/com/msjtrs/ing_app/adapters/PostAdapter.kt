@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.ListAdapter
 import com.msjtrs.ing_app.domain.PostProperty
 import com.msjtrs.ing_app.databinding.GridViewItemBinding
 import androidx.recyclerview.widget.DiffUtil
+import kotlinx.android.synthetic.main.grid_view_item.view.*
 
 
 class PostAdapter(private val onClickListener: OnClickListener) :
@@ -32,7 +33,7 @@ class PostAdapter(private val onClickListener: OnClickListener) :
 
     override fun onBindViewHolder(holder: PostViewHolder, position: Int) {
         val postProperty = getItem(position)
-        holder.itemView.setOnClickListener(){
+        holder.itemView.user_text.setOnClickListener(){
             onClickListener.onClick(postProperty)
         }
         holder.bind(postProperty)

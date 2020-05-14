@@ -66,18 +66,16 @@ class OverviewViewModel : ViewModel() {
 
     private fun setPosterProperties() {
         for(post in _postProperties.value!!) {
-            for(user in userProperties.value!!) {
-                if(post.userId == user.id) {
-                    post.posterName = user.username
-                    post.posterEmail = user.email
-                    post.posterWebsite = user.website
-                    post.posterStreet = user.address.street
-                    post.posterCity = user.address.city
-                    post.posterZipcode = user.address.zipcode
-                    post.posterGeoLatitude = user.address.geo.lat
-                    post.posterGeoLongitude = user.address.geo.lng
-                    break
-                }
+            val user : UserProperty? = _userProperties.value?.get(post.userId.toInt()-1)
+            if(user != null) {
+                post.posterName = user.username
+                post.posterEmail = user.email
+                post.posterWebsite = user.website
+                post.posterStreet = user.address.street
+                post.posterCity = user.address.city
+                post.posterZipcode = user.address.zipcode
+                post.posterGeoLatitude = user.address.geo.lat
+                post.posterGeoLongitude = user.address.geo.lng
             }
         }
     }
@@ -96,4 +94,5 @@ class OverviewViewModel : ViewModel() {
     fun displayPropertyDetailsComplete(){
         _navigateToSelectedProperty.value = null
     }
+
 }

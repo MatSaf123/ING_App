@@ -21,16 +21,16 @@
         android:orientation="vertical"
         android:padding="6dp">
 
-<!--        all components - user, title, body and comments and displayed in-->
-<!--        grid layout in order to display both image and text-->
+        <!--        all components - user, title, body and comments and displayed in-->
+        <!--        grid layout in order to display both image and text-->
 
         <!-- USER -->
         <GridLayout
             android:id="@+id/id_user"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:useDefaultMargins="true"
-            android:orientation="horizontal">
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:useDefaultMargins="true">
 
             <!-- user image -->
             <ImageView
@@ -46,81 +46,83 @@
             <TextView
                 android:id="@+id/user_text"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:fontFamily="@font/roboto"
                 android:scaleType="centerCrop"
                 android:text="@{post.posterName}"
-                tools:text="@string/user_username"
-                android:textSize="18sp" />
+                android:textSize="18sp"
+                tools:text="@string/user_username" />
         </GridLayout>
 
         <!-- TITLE -->
         <GridLayout
             android:id="@+id/id_title"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:useDefaultMargins="true"
-            android:orientation="horizontal">
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:useDefaultMargins="true">
 
             <!-- title image -->
             <ImageView
-            android:id="@+id/title_image"
-            android:layout_width="17dp"
-            android:layout_height="17dp"
-            android:layout_gravity="center_horizontal"
-            android:contentDescription="@string/comment_image"
-            app:srcCompat="@drawable/ic_title"
-            tools:src="@drawable/ic_title" />
+                android:id="@+id/title_image"
+                android:layout_width="17dp"
+                android:layout_height="17dp"
+                android:layout_gravity="center_horizontal"
+                android:contentDescription="@string/comment_image"
+                app:srcCompat="@drawable/ic_title"
+                tools:src="@drawable/ic_title" />
 
             <!-- title text -->
             <TextView
-            android:id="@+id/title_text"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:adjustViewBounds="true"
-            android:fontFamily="@font/roboto_condensed_light"
-            android:scaleType="centerCrop"
-            android:text="@{post.component3()}"
-            android:textSize="14sp" />
+                android:id="@+id/title_text"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:adjustViewBounds="true"
+                android:fontFamily="@font/roboto_condensed_light"
+                android:scaleType="centerCrop"
+                android:text="@{post.component3()}"
+                android:textSize="14sp"
+                tools:text="Title"/>
         </GridLayout>
 
         <!-- BODY -->
         <GridLayout
-        android:id="@+id/id_body"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:useDefaultMargins="true"
-        android:orientation="horizontal">
+            android:id="@+id/id_body"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:useDefaultMargins="true">
 
             <!-- body image -->
             <ImageView
-            android:id="@+id/body_image"
-            android:layout_width="17dp"
-            android:layout_height="17dp"
-            android:layout_gravity="center_horizontal"
-            android:contentDescription="@string/comment_image"
-            app:srcCompat="@drawable/ic_content"
-            tools:src="@drawable/ic_content" />
+                android:id="@+id/body_image"
+                android:layout_width="17dp"
+                android:layout_height="17dp"
+                android:layout_gravity="center_horizontal"
+                android:contentDescription="@string/comment_image"
+                app:srcCompat="@drawable/ic_content"
+                tools:src="@drawable/ic_content" />
 
             <!-- body text -->
             <TextView
-            android:id="@+id/body_text"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:adjustViewBounds="true"
-            android:fontFamily="@font/roboto_thin"
-            android:scaleType="centerCrop"
-            android:text="@{post.component4()}"
-            android:textSize="14sp" />
+                android:id="@+id/body_text"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:adjustViewBounds="true"
+                android:fontFamily="@font/roboto_thin"
+                android:scaleType="centerCrop"
+                android:text="@{post.component4()}"
+                android:textSize="14sp"
+                tools:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sagittis gravida leo ut tincidunt. Quisque rhoncus euismod risus nec fermentum."/>
         </GridLayout>
 
         <!-- COMMENT -->
         <GridLayout
             android:id="@+id/id_comment"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:useDefaultMargins="true"
-            android:orientation="horizontal">
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:useDefaultMargins="true">
 
             <!-- comment image -->
             <ImageView
@@ -141,12 +143,14 @@
                 android:fontFamily="@font/roboto_condensed_light"
                 android:scaleType="centerCrop"
                 android:text="@{`Comments: ` + Integer.toString(post.commentCount)}"
-                android:textSize="14sp" />
+                android:textSize="14sp"
+                tools:text="Number of comments"/>
         </GridLayout>
 
         <!-- SEPARATORS (gray horizontal lines) -->
-        <View style="@style/Divider_invisible" />
-        <View style="@style/Divider" />
+        <View
+            style="@style/Divider"
+            android:layout_margin="10dp" />
 
     </LinearLayout>
 </layout>

@@ -10,7 +10,8 @@ import com.msjtrs.ing_app.adapters.PostAdapter
 import com.msjtrs.ing_app.adapters.UserAdapter
 import com.msjtrs.ing_app.databinding.FragmentOverviewBinding
 
-class OverviewFragment : Fragment() {
+
+class OverviewFragment : Fragment(){
     private val viewModel: OverviewViewModel by lazy {
         ViewModelProviders.of(this).get(OverviewViewModel::class.java)
     }
@@ -39,5 +40,6 @@ class OverviewFragment : Fragment() {
 
         return binding.root
     }
+
 
 }

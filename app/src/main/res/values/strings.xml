@@ -19,4 +19,7 @@
     <string name="user_longitude">Longitude</string>
     <string name="user_photos">Photos</string>
 
+    <!--    MAPS    -->
+    <string name="google_maps_key" templateMergeStrategy="preserve" translatable="false">AIzaSyDoHg_DZavRaNYX6275NRmU851fhdxedb0</string>
+
 </resources>
