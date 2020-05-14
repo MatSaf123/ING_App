@@ -8,8 +8,8 @@
    
 <img src = "https://camo.githubusercontent.com/0aeb5a35ad2af9c1201d7edc24b0e8cd3ae7dbde/68747470733a2f2f692e696d6775722e636f6d2f6b4a4b4b41724e2e6a7067"
 data-canonical-src = "https://i.imgur.com/kJKKArN.jpg" width="331" height="700" />
-<img src = "https://camo.githubusercontent.com/414a7e2225a9126836bdc928f1f4efa57d91e39d/68747470733a2f2f692e696d6775722e636f6d2f715875424372502e6a7067"
-data-canonical-src = "https://i.imgur.com/qXuBCrP.jpg" width="331" height="700" />  
+<img src = "https://camo.githubusercontent.com/64005edf6e8b22c989ff9c7aea149a2fcbf28159/68747470733a2f2f692e696d6775722e636f6d2f476d524d4752382e6a7067"
+data-canonical-src = "https://i.imgur.com/GmRMGR8.jpg" width="331" height="700" />  
 <img src = "https://camo.githubusercontent.com/3498c50eb7fd4ad49f2557daa80b488514748fc0/68747470733a2f2f692e696d6775722e636f6d2f50347431745a4f2e6a7067"
 data-canonical-src = "https://i.imgur.com/P4t1tZO.jpg" width="331" height="700" />   
 
@@ -47,3 +47,4 @@ Contributors:
 1. MatSaf123
 2. TymJannek
 3. Shepard701
+
