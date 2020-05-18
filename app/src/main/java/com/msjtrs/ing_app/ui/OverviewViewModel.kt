@@ -1,5 +1,7 @@
 package com.msjtrs.ing_app.ui
 
+import android.util.Log
+import android.widget.Toast
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -10,6 +12,8 @@ import com.msjtrs.ing_app.domain.UserProperty
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.launch
 import java.lang.Exception
+import java.util.*
+import kotlin.collections.ArrayList
 
 enum class AppStatus { LOADING, ERROR, DONE }
 
@@ -86,6 +90,7 @@ class OverviewViewModel : ViewModel() {
                 _postProperties.value?.get(comment.postId.toInt()-1)?.commentCount?.plus(1)!!
         }
     }
+
 
     fun displayPropertyDetails(postProperty: PostProperty){
         _navigateToSelectedProperty.value = postProperty

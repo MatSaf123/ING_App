@@ -25,11 +25,12 @@ class OverviewFragment : Fragment(){
 
         binding.viewModel = viewModel
 
-        binding.postsList.adapter = PostAdapter(PostAdapter.OnClickListener{
-            viewModel.displayPropertyDetails(it)
-        })
+        binding.postsList.adapter = PostAdapter(
+            PostAdapter.OnClickListener { viewModel.displayPropertyDetails(it) },
+            PostAdapter.OnClickListener { viewModel.displayPropertyDetails(it) }    //  tu podmienić na displayComments czy cos
+        )
 
-        viewModel.navigateToSelectedProperty.observe(this, Observer {
+        viewModel.navigateToSelectedProperty.observe(viewLifecycleOwner, Observer {
             if(null!= it){
                 this.findNavController().navigate(OverviewFragmentDirections.actionShowDetail(it))
                 viewModel.displayPropertyDetailsComplete()

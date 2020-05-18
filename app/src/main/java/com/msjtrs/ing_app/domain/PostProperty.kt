@@ -2,6 +2,8 @@ package com.msjtrs.ing_app.domain
 
 import android.os.Parcelable
 import kotlinx.android.parcel.Parcelize
+import java.util.*
+import kotlin.collections.ArrayList
 
 @Parcelize
 data class PostProperty(
@@ -20,6 +22,7 @@ data class PostProperty(
     lateinit var posterGeoLatitude: String
     lateinit var posterGeoLongitude: String
     var commentCount : Int = 0
+
 
 
 
