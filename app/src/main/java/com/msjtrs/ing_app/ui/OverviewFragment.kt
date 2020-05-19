@@ -32,7 +32,7 @@ class OverviewFragment : Fragment(){
             PostAdapter.CommentsOnClickListener { viewModel.displayPropertyDetails(it) }
         )
 
-        //mój stary kod
+        //mój stary
 //        binding.postsList.adapter = PostAdapter(PostAdapter.OnClickListener{
 //            viewModel.displayPropertyDetails(it)
 //        })
