@@ -13,7 +13,7 @@
         tools:layout="@layout/fragment_overview" >
         <action
             android:id="@+id/navigate_to_user"
-            app:destination="@id/user_fragment" />
+            app:destination="@id/usersFragment" />
         <action
             android:id="@+id/navigate_to_comment"
             app:destination="@+id/commentsFragment"/>
@@ -30,7 +30,7 @@
     </fragment>
 
     <fragment
-        android:id="@+id/user_fragment"
+        android:id="@+id/usersFragment"
         android:name="com.msjtrs.ing_app.ui.UserFragment"
         android:label="user_fragment"
         tools:layout="@layout/user_fragment" >

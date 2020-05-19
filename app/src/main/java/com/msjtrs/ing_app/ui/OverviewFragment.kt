@@ -26,25 +26,20 @@ class OverviewFragment : Fragment(){
 
         binding.viewModel = viewModel
 
-        //twój kod
         binding.postsList.adapter = PostAdapter(
-            PostAdapter.OnClickListener { viewModel.displayPropertyDetails(it) },
+            PostAdapter.OnClickListener { viewModel.displayUserProperties(it) },
             PostAdapter.CommentsOnClickListener { viewModel.displayCommentProperties(it) }
         )
 
-        //mój stary
-//        binding.postsList.adapter = PostAdapter(PostAdapter.OnClickListener{
-//            viewModel.displayPropertyDetails(it)
-//        })
 
-        viewModel.navigateToSelectedProperty.observe(viewLifecycleOwner, Observer {
+        viewModel.navigateToUserProperty.observe(viewLifecycleOwner, Observer {
             if(null!= it){
                 this.findNavController().navigate(OverviewFragmentDirections.navigateToUser(it))
-                viewModel.displayPropertyDetailsComplete()
+                viewModel.displayUserPropertiesComplete()
             }
         })
 
-        viewModel.navigateToSelectedProperty2.observe(viewLifecycleOwner, Observer {
+        viewModel.navigateToCommentProperty.observe(viewLifecycleOwner, Observer {
             if(null!= it){
                 this.findNavController().navigate(OverviewFragmentDirections.navigateToComment(it))
                 viewModel.displayCommentPropertiesComplete()

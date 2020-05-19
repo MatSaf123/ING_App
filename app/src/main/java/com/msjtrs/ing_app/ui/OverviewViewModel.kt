@@ -1,7 +1,5 @@
 package com.msjtrs.ing_app.ui
 
-import android.util.Log
-import android.widget.Toast
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -12,7 +10,6 @@ import com.msjtrs.ing_app.domain.UserProperty
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.launch
 import java.lang.Exception
-import java.util.*
 import kotlin.collections.ArrayList
 
 enum class AppStatus { LOADING, ERROR, DONE }
@@ -35,13 +32,13 @@ class OverviewViewModel : ViewModel() {
     val commentProperties: LiveData<List<CommentProperty>>
         get() = _commentProperties
 
-    private val _navigateToSelectedProperty = MutableLiveData<PostProperty>()
-    val navigateToSelectedProperty: LiveData<PostProperty>
-        get() = _navigateToSelectedProperty
+    private val _navigateToUserProperty = MutableLiveData<PostProperty>()
+    val navigateToUserProperty: LiveData<PostProperty>
+        get() = _navigateToUserProperty
 
-    private val _navigateToSelectedProperty2 = MutableLiveData<PostProperty>()
-    val navigateToSelectedProperty2: LiveData<PostProperty>
-        get() = _navigateToSelectedProperty2
+    private val _navigateToCommentProperty = MutableLiveData<PostProperty>()
+    val navigateToCommentProperty: LiveData<PostProperty>
+        get() = _navigateToCommentProperty
 
     init {
         getData()
@@ -95,6 +92,7 @@ class OverviewViewModel : ViewModel() {
             val comment : CommentProperty? = _commentProperties.value?.get(post.postId.toInt()-1)
             if(comment != null){
                 post.commentBody = comment.body
+
             }
         }
     }
@@ -102,6 +100,8 @@ class OverviewViewModel : ViewModel() {
     private fun attachCommentsToPostsDEV() {
         for(comment in _commentProperties.value!!) {
             _postProperties.value!!.get(comment.postId.toInt()-1).commentBody=comment.body
+            _postProperties.value!!.get(comment.postId.toInt()-1).commentName=comment.name
+            _postProperties.value!!.get(comment.postId.toInt()-1).commentEmail=comment.email
         }
     }
 
@@ -112,20 +112,20 @@ class OverviewViewModel : ViewModel() {
         }
     }
 
-    fun displayPropertyDetails(postProperty: PostProperty){
-        _navigateToSelectedProperty.value = postProperty
+    fun displayUserProperties(postProperty: PostProperty){
+        _navigateToUserProperty.value = postProperty
     }
 
-    fun displayPropertyDetailsComplete(){
-        _navigateToSelectedProperty.value = null
+    fun displayUserPropertiesComplete(){
+        _navigateToUserProperty.value = null
     }
 
     fun displayCommentProperties(postProperty: PostProperty){
-        _navigateToSelectedProperty2.value = postProperty
+        _navigateToCommentProperty.value = postProperty
     }
 
     fun displayCommentPropertiesComplete(){
-        _navigateToSelectedProperty2.value = null
+        _navigateToCommentProperty.value = null
     }
 
 }
