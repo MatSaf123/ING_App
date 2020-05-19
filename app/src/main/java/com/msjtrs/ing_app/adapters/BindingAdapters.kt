@@ -6,6 +6,7 @@ import androidx.databinding.BindingAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.msjtrs.ing_app.R
 import com.msjtrs.ing_app.R.drawable.loading_animation
+import com.msjtrs.ing_app.domain.CommentProperty
 import com.msjtrs.ing_app.domain.PostProperty
 import com.msjtrs.ing_app.domain.UserProperty
 import com.msjtrs.ing_app.ui.AppStatus
@@ -38,5 +39,11 @@ fun bindPostData(recyclerView: RecyclerView, data: List<PostProperty>?) {
 @BindingAdapter("userData")
 fun bindUserData(recyclerView: RecyclerView, data: List<UserProperty>?) {
     val adapter = recyclerView.adapter as UserAdapter
+    adapter.submitList(data)
+}
+
+@BindingAdapter("commentData")
+fun bindCommentData(recyclerView: RecyclerView, data: List<CommentProperty>?) {
+    val adapter = recyclerView.adapter as CommentAdapter
     adapter.submitList(data)
 }

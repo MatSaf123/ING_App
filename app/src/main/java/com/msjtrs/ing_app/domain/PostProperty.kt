@@ -23,6 +23,12 @@ data class PostProperty(
     lateinit var posterGeoLongitude: String
     var commentCount : Int = 0
 
+    lateinit var commentId : String
+    lateinit var postId : String
+    lateinit var commentName : String
+    lateinit var commentEmail : String
+    lateinit var commentBody : String
+
 
 
 

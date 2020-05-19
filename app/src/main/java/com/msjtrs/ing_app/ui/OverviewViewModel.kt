@@ -57,6 +57,7 @@ class OverviewViewModel : ViewModel() {
                 _postProperties.value = listPosts
 
                 setPosterProperties()
+                setCommentProperties()
                 attachCommentCountToPosts()
             }
             catch(e: Exception) {
@@ -80,6 +81,15 @@ class OverviewViewModel : ViewModel() {
                 post.posterZipcode = user.address.zipcode
                 post.posterGeoLatitude = user.address.geo.lat
                 post.posterGeoLongitude = user.address.geo.lng
+            }
+        }
+    }
+
+    private fun setCommentProperties() {
+        for(post in _postProperties.value!!){
+            val comment : CommentProperty? = _commentProperties.value?.get(post.postId.toInt()-1)
+            if(comment != null){
+                post.commentBody = comment.body
             }
         }
     }

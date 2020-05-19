@@ -13,14 +13,26 @@
         tools:layout="@layout/fragment_overview" >
         <action
             android:id="@+id/action_showDetail"
-            app:destination="@id/detailFragment" />
+            app:destination="@id/user_fragment" />
     </fragment>
 
     <fragment
-        android:id="@+id/detailFragment"
-        android:name="com.msjtrs.ing_app.ui.UserDetailFragment"
-        android:label="fragment_detail"
-        tools:layout="@layout/fragment_detail">
+        android:id="@+id/user_fragment"
+        android:name="com.msjtrs.ing_app.ui.UserFragment"
+        android:label="user_fragment"
+        tools:layout="@layout/user_fragment" >
+        <argument
+            android:name="selectedProperty"
+            app:argType="com.msjtrs.ing_app.domain.PostProperty"/>
+    </fragment>
+
+
+
+    <fragment
+        android:id="@+id/comment_fragment"
+        android:name="com.msjtrs.ing_app.ui.CommentFragment"
+        android:label="comment_fragment"
+        tools:layout="@layout/comment_fragment">
         <argument
             android:name="selectedProperty"
             app:argType="com.msjtrs.ing_app.domain.PostProperty"/>
