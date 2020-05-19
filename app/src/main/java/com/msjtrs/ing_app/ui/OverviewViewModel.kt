@@ -57,7 +57,8 @@ class OverviewViewModel : ViewModel() {
                 _postProperties.value = listPosts
 
                 setPosterProperties()
-                setCommentProperties()
+                //setCommentProperties()
+                attachCommentsToPostsDEV()
                 attachCommentCountToPosts()
             }
             catch(e: Exception) {
@@ -91,6 +92,12 @@ class OverviewViewModel : ViewModel() {
             if(comment != null){
                 post.commentBody = comment.body
             }
+        }
+    }
+
+    private fun attachCommentsToPostsDEV() {
+        for(comment in _commentProperties.value!!) {
+            _postProperties.value!!.get(comment.postId.toInt()-1).commentBody=comment.body
         }
     }
 
