@@ -88,12 +88,12 @@
 
 
         <!-- google map -->
-<!--        <com.google.android.gms.maps.MapView-->
-<!--            android:id="@+id/map_view"-->
-<!--            android:layout_width="300dp"-->
-<!--            android:layout_height="400dp"-->
-<!--            android:layout_marginTop="24dp"-->
-<!--            android:layout_gravity="center_horizontal" />-->
+        <com.google.android.gms.maps.MapView
+            android:id="@+id/map_view"
+            android:layout_width="300dp"
+            android:layout_height="400dp"
+            android:layout_marginTop="24dp"
+            android:layout_gravity="center_horizontal" />
 
         <!-- SEPARATORS (gray horizontal lines) -->
         <View style="@style/Divider_invisible" />

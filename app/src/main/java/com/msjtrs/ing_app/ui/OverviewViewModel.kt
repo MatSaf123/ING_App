@@ -39,6 +39,10 @@ class OverviewViewModel : ViewModel() {
     val navigateToSelectedProperty: LiveData<PostProperty>
         get() = _navigateToSelectedProperty
 
+    private val _navigateToSelectedProperty2 = MutableLiveData<PostProperty>()
+    val navigateToSelectedProperty2: LiveData<PostProperty>
+        get() = _navigateToSelectedProperty2
+
     init {
         getData()
     }
@@ -114,6 +118,14 @@ class OverviewViewModel : ViewModel() {
 
     fun displayPropertyDetailsComplete(){
         _navigateToSelectedProperty.value = null
+    }
+
+    fun displayCommentProperties(postProperty: PostProperty){
+        _navigateToSelectedProperty2.value = postProperty
+    }
+
+    fun displayCommentPropertiesComplete(){
+        _navigateToSelectedProperty2.value = null
     }
 
 }

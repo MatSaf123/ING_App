@@ -12,8 +12,21 @@
         android:label="fragment_overview"
         tools:layout="@layout/fragment_overview" >
         <action
-            android:id="@+id/action_showDetail"
+            android:id="@+id/navigate_to_user"
             app:destination="@id/user_fragment" />
+        <action
+            android:id="@+id/navigate_to_comment"
+            app:destination="@+id/commentsFragment"/>
+    </fragment>
+
+    <fragment
+        android:id="@+id/commentsFragment"
+        android:name="com.msjtrs.ing_app.ui.CommentFragment"
+        android:label="comment_fragment"
+        tools:layout="@layout/comment_fragment">
+        <argument
+            android:name="selectedProperty"
+            app:argType="com.msjtrs.ing_app.domain.PostProperty"/>
     </fragment>
 
     <fragment
@@ -28,13 +41,5 @@
 
 
 
-    <fragment
-        android:id="@+id/comment_fragment"
-        android:name="com.msjtrs.ing_app.ui.CommentFragment"
-        android:label="comment_fragment"
-        tools:layout="@layout/comment_fragment">
-        <argument
-            android:name="selectedProperty"
-            app:argType="com.msjtrs.ing_app.domain.PostProperty"/>
-    </fragment>
+
 </navigation>

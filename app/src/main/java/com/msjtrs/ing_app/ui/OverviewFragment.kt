@@ -29,7 +29,7 @@ class OverviewFragment : Fragment(){
         //twój kod
         binding.postsList.adapter = PostAdapter(
             PostAdapter.OnClickListener { viewModel.displayPropertyDetails(it) },
-            PostAdapter.CommentsOnClickListener { viewModel.displayPropertyDetails(it) }
+            PostAdapter.CommentsOnClickListener { viewModel.displayCommentProperties(it) }
         )
 
         //mój stary
@@ -39,8 +39,15 @@ class OverviewFragment : Fragment(){
 
         viewModel.navigateToSelectedProperty.observe(viewLifecycleOwner, Observer {
             if(null!= it){
-                this.findNavController().navigate(OverviewFragmentDirections.actionShowDetail(it))
+                this.findNavController().navigate(OverviewFragmentDirections.navigateToUser(it))
                 viewModel.displayPropertyDetailsComplete()
+            }
+        })
+
+        viewModel.navigateToSelectedProperty2.observe(viewLifecycleOwner, Observer {
+            if(null!= it){
+                this.findNavController().navigate(OverviewFragmentDirections.navigateToComment(it))
+                viewModel.displayCommentPropertiesComplete()
             }
         })
 
