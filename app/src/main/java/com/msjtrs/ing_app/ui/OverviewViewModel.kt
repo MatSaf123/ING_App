@@ -101,7 +101,6 @@ class OverviewViewModel : ViewModel() {
         }
     }
 
-
     fun displayPropertyDetails(postProperty: PostProperty){
         _navigateToSelectedProperty.value = postProperty
     }

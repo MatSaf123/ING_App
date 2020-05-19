@@ -34,10 +34,10 @@ class PostAdapter( val onClickListener: OnClickListener, val onCommentsOnClickLi
     override fun onBindViewHolder(holder: PostViewHolder, position: Int) {
         val postProperty = getItem(position)
         holder.bind(postProperty)
-        holder.itemView.user_text.setOnClickListener() {
+        holder.itemView.user_text.setOnClickListener {
             onClickListener.onClick(postProperty)
         }
-        holder.itemView.comment_text.setOnClickListener() {
+        holder.itemView.comment_text.setOnClickListener {
             onCommentsOnClickListener.onClick(postProperty)
         }
 
