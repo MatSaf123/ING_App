@@ -62,11 +62,6 @@ class OverviewViewModel : ViewModel() {
                 _commentProperties.value = listComments
                 _postProperties.value = listPosts
 
-                setPosterProperties()
-                attachCommentsToPostsDEV()
-
-                sortCommentsIntoLists()     //new
-                attachCommentsToPosts()     //new
             }
             catch(e: Exception) {
                 Log.d("Error_TryCatch",e.message.toString())
@@ -75,6 +70,11 @@ class OverviewViewModel : ViewModel() {
                 _commentProperties.value = ArrayList()
                 _postProperties.value = ArrayList()
             }
+
+            setPosterProperties()
+            attachCommentsToPostsDEV()
+            sortCommentsIntoLists()     //new
+            attachCommentsToPosts()     //new
         }
     }
 
