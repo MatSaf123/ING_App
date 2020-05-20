@@ -17,7 +17,7 @@
         android:layout_height="match_parent"
         android:background="@color/backgroundColor"
         android:orientation="vertical"
-        android:padding="6dp">
+        android:padding="3dp">
 
         <TextView
             android:id="@+id/comment_name"
@@ -26,31 +26,71 @@
             android:paddingBottom="6dp"
             android:fontFamily="@font/roboto"
             android:scaleType="centerCrop"
-            android:text="@{`Name: ` + viewModel.selectedProperty.commentName}"
-            android:textSize="16sp"
+            android:text="@{`Name: ` + viewModel.selectedProperty.comments[0].name + `\nEmail: ` + viewModel.selectedProperty.comments[0].email + `\nBody: ` + viewModel.selectedProperty.comments[0].body}"
+            android:textSize="14sp"
             tools:text="@string/user_username" />
 
+        <View
+            style="@style/Divider"
+            android:layout_margin="10dp" />
+
         <TextView
-            android:id="@+id/comment_email"
+        android:id="@+id/comment_name2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="6dp"
+        android:fontFamily="@font/roboto"
+        android:scaleType="centerCrop"
+        android:text="@{`Name: ` + viewModel.selectedProperty.comments[1].name + `\nEmail: ` + viewModel.selectedProperty.comments[1].email + `\nBody: ` + viewModel.selectedProperty.comments[1].body}"
+        android:textSize="14sp"
+        tools:text="@string/user_username" />
+
+        <View
+            style="@style/Divider"
+            android:layout_margin="10dp" />
+
+        <TextView
+            android:id="@+id/comment_name3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:paddingBottom="6dp"
             android:fontFamily="@font/roboto"
             android:scaleType="centerCrop"
-            android:text="@{`Email: ` + viewModel.selectedProperty.commentEmail}"
-            android:textSize="16sp"
+            android:text="@{`Name: ` + viewModel.selectedProperty.comments[2].name + `\nEmail: ` + viewModel.selectedProperty.comments[2].email + `\nBody: ` + viewModel.selectedProperty.comments[2].body}"
+            android:textSize="14sp"
             tools:text="@string/user_username" />
 
+        <View
+            style="@style/Divider"
+            android:layout_margin="10dp" />
+
         <TextView
-            android:id="@+id/comment_body"
+            android:id="@+id/comment_name4"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:paddingBottom="6dp"
             android:fontFamily="@font/roboto"
             android:scaleType="centerCrop"
-            android:text="@{`Body: ` + viewModel.selectedProperty.commentBody}"
-            android:textSize="16sp"
+            android:text="@{`Name: ` + viewModel.selectedProperty.comments[3].name + `\nEmail: ` + viewModel.selectedProperty.comments[3].email + `\nBody: ` + viewModel.selectedProperty.comments[0].body}"
+            android:textSize="14sp"
             tools:text="@string/user_username" />
+
+        <View
+            style="@style/Divider"
+            android:layout_margin="10dp" />
+
+        <TextView
+            android:id="@+id/comment_name5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingBottom="6dp"
+            android:fontFamily="@font/roboto"
+            android:scaleType="centerCrop"
+            android:text="@{`Name: ` + viewModel.selectedProperty.comments[4].name + `\nEmail: ` + viewModel.selectedProperty.comments[4].email + `\nBody: ` + viewModel.selectedProperty.comments[4].body}"
+            android:textSize="14sp"
+            tools:text="@string/user_username" />
+
+
 
 
     </LinearLayout>
