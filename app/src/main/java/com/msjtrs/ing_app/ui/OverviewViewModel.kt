@@ -1,5 +1,6 @@
 package com.msjtrs.ing_app.ui
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -32,6 +33,10 @@ class OverviewViewModel : ViewModel() {
     val commentProperties: LiveData<List<CommentProperty>>
         get() = _commentProperties
 
+    private val _commentsSorted = MutableLiveData<MutableList<MutableList<CommentProperty>>>()
+    val commentsSorted: LiveData<MutableList<MutableList<CommentProperty>>>
+        get() = _commentsSorted
+
     private val _navigateToUserProperty = MutableLiveData<PostProperty>()
     val navigateToUserProperty: LiveData<PostProperty>
         get() = _navigateToUserProperty
@@ -61,8 +66,12 @@ class OverviewViewModel : ViewModel() {
                 //setCommentProperties()
                 attachCommentsToPostsDEV()
                 attachCommentCountToPosts()
+
+                sortCommentsIntoLists()     //new
+                attachCommentsToPosts()     //new
             }
             catch(e: Exception) {
+                Log.d("Error_TryCatch",e.message.toString())
                 _status.value = AppStatus.ERROR
                 _userProperties.value = ArrayList()
                 _commentProperties.value = ArrayList()
@@ -87,16 +96,6 @@ class OverviewViewModel : ViewModel() {
         }
     }
 
-    private fun setCommentProperties() {
-        for(post in _postProperties.value!!){
-            val comment : CommentProperty? = _commentProperties.value?.get(post.postId.toInt()-1)
-            if(comment != null){
-                post.commentBody = comment.body
-
-            }
-        }
-    }
-
     private fun attachCommentsToPostsDEV() {
         for(comment in _commentProperties.value!!) {
             _postProperties.value!!.get(comment.postId.toInt()-1).commentBody=comment.body
@@ -105,10 +104,35 @@ class OverviewViewModel : ViewModel() {
         }
     }
 
+    // i can probably get rid of this later:
     private fun attachCommentCountToPosts() {
         for(comment in _commentProperties.value!!) {
             _postProperties.value?.get(comment.postId.toInt()-1)?.commentCount =
                 _postProperties.value?.get(comment.postId.toInt()-1)?.commentCount?.plus(1)!!
+        }
+    }
+
+    // NEW:
+    private fun sortCommentsIntoLists() {
+        val aList : MutableList<MutableList<CommentProperty>> = arrayListOf()
+
+        for(post in _postProperties.value!!) {
+            aList.add(arrayListOf())
+            //Log.e("DDDDEV", aList.get(40).size.toString())            //this crashes the app
+        }
+
+        for(comment in _commentProperties.value!!) {
+            aList[comment.postId.toInt()-1].add(comment)
+        }
+
+        //Log.e("CheckSampleVal", aList[10][3].testval)
+        _commentsSorted.value = aList
+    }
+
+    // NEW:
+    private fun attachCommentsToPosts() {
+        for(list in _commentsSorted.value!!) {
+            _postProperties.value!!.get(list[0].postId.toInt()-1).comments = list.toList()
         }
     }
 

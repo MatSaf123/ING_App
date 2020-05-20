@@ -28,8 +28,7 @@ data class PostProperty(
     lateinit var commentName : String
     lateinit var commentEmail : String
     lateinit var commentBody : String
-
-
+    lateinit var comments : List<CommentProperty>
 
 
 
