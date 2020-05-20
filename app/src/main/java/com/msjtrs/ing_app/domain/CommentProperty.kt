@@ -12,6 +12,5 @@ data class CommentProperty(
     val body : String
 
 ) : Parcelable {
-    var testval : String = "testtest"
 
 }

@@ -63,9 +63,7 @@ class OverviewViewModel : ViewModel() {
                 _postProperties.value = listPosts
 
                 setPosterProperties()
-                //setCommentProperties()
                 attachCommentsToPostsDEV()
-                attachCommentCountToPosts()
 
                 sortCommentsIntoLists()     //new
                 attachCommentsToPosts()     //new
@@ -80,6 +78,7 @@ class OverviewViewModel : ViewModel() {
         }
     }
 
+    //TODO: Refactor, redo to pass UserProperty object instead of strings
     private fun setPosterProperties() {
         for(post in _postProperties.value!!) {
             val user : UserProperty? = _userProperties.value?.get(post.userId.toInt()-1)
@@ -98,41 +97,30 @@ class OverviewViewModel : ViewModel() {
 
     private fun attachCommentsToPostsDEV() {
         for(comment in _commentProperties.value!!) {
-            _postProperties.value!!.get(comment.postId.toInt()-1).commentBody=comment.body
-            _postProperties.value!!.get(comment.postId.toInt()-1).commentName=comment.name
-            _postProperties.value!!.get(comment.postId.toInt()-1).commentEmail=comment.email
+            _postProperties.value!![comment.postId.toInt()-1].commentBody=comment.body
+            _postProperties.value!![comment.postId.toInt()-1].commentName=comment.name
+            _postProperties.value!![comment.postId.toInt()-1].commentEmail=comment.email
         }
     }
-
-    // i can probably get rid of this later:
-    private fun attachCommentCountToPosts() {
-        for(comment in _commentProperties.value!!) {
-            _postProperties.value?.get(comment.postId.toInt()-1)?.commentCount =
-                _postProperties.value?.get(comment.postId.toInt()-1)?.commentCount?.plus(1)!!
-        }
-    }
-
     // NEW:
     private fun sortCommentsIntoLists() {
         val aList : MutableList<MutableList<CommentProperty>> = arrayListOf()
 
         for(post in _postProperties.value!!) {
             aList.add(arrayListOf())
-            //Log.e("DDDDEV", aList.get(40).size.toString())            //this crashes the app
         }
 
         for(comment in _commentProperties.value!!) {
             aList[comment.postId.toInt()-1].add(comment)
         }
 
-        //Log.e("CheckSampleVal", aList[10][3].testval)
         _commentsSorted.value = aList
     }
-
     // NEW:
     private fun attachCommentsToPosts() {
         for(list in _commentsSorted.value!!) {
-            _postProperties.value!!.get(list[0].postId.toInt()-1).comments = list.toList()
+            _postProperties.value!![list[0].postId.toInt()-1].commentCount = list.toList().size
+            _postProperties.value!![list[0].postId.toInt()-1].comments = list.toList()
         }
     }
 
