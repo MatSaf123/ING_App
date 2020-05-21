@@ -27,7 +27,7 @@ class OverviewFragment : Fragment(){
         binding.viewModel = viewModel
 
         binding.postsList.adapter = PostAdapter(
-            PostAdapter.OnClickListener { viewModel.displayUserProperties(it) },
+            PostAdapter.UsernameOnClickListener { viewModel.displayUserProperties(it) },
             PostAdapter.CommentsOnClickListener { viewModel.displayCommentProperties(it) }
         )
 
