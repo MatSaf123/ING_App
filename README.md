@@ -27,7 +27,8 @@ TODO:
 - [x] Sprawienie aby klikalna była nazwa użytkownika, nie cały post
 - [x] Dodanie fragmentu z informacjami o użytkowniku 
 - [x] Przerobienie wartości długości i szerokości geograficznej na widok z Google Maps
-- [ ] Dodanie fragmentu na komentarze
+- [x] Dodanie fragmentu na komentarze
+- [ ] Poprawienie działania i wyglądu fragmentu na komentarze
 - [ ] Dodanie fragmentu na zdjęcia użytkownika + połączenie go z guzikiem w profilu użytkownika
 - [ ] Dodanie menu z informacji o autorach + informacji o źródle assetów z internetu
 - [ ] Dodanie testów
