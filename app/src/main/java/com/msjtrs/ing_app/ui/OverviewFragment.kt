@@ -46,8 +46,8 @@ class OverviewFragment : Fragment(){
             }
         })
 
-        binding.usersList.adapter = UserAdapter()
-        binding.commentsList.adapter = CommentAdapter()
+        //binding.usersList.adapter = UserAdapter()
+        //binding.commentsList.adapter = CommentAdapter()
 
         return binding.root
     }
