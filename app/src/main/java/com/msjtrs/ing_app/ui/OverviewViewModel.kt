@@ -9,6 +9,7 @@ import com.msjtrs.ing_app.network.JsonplaceholderApi
 import com.msjtrs.ing_app.domain.PostProperty
 import com.msjtrs.ing_app.domain.UserProperty
 import androidx.lifecycle.viewModelScope
+import com.msjtrs.ing_app.domain.PhotoProperty
 import kotlinx.coroutines.launch
 import java.lang.Exception
 import kotlin.collections.ArrayList
@@ -37,6 +38,10 @@ class OverviewViewModel : ViewModel() {
     val commentsSorted: LiveData<MutableList<MutableList<CommentProperty>>>
         get() = _commentsSorted
 
+    private val _photoProperties = MutableLiveData<List<PhotoProperty>>()
+    val photoProperties: LiveData<List<PhotoProperty>>
+        get() = _photoProperties
+
     private val _navigateToUserProperty = MutableLiveData<PostProperty>()
     val navigateToUserProperty: LiveData<PostProperty>
         get() = _navigateToUserProperty
@@ -56,8 +61,10 @@ class OverviewViewModel : ViewModel() {
                 val listUsers = JsonplaceholderApi.retrofitService.getUsers().await()
                 val listComments = JsonplaceholderApi.retrofitService.getComments().await()
                 val listPosts = JsonplaceholderApi.retrofitService.getPosts().await()
+                val listPhotos = JsonplaceholderApi.retrofitService.getPhotos().await()
                 _status.value = AppStatus.DONE
 
+                _photoProperties.value = listPhotos
                 _userProperties.value = listUsers
                 _commentProperties.value = listComments
                 _postProperties.value = listPosts
@@ -72,9 +79,8 @@ class OverviewViewModel : ViewModel() {
             }
 
             setPosterProperties()
-            attachCommentsToPostsDEV()
-            sortCommentsIntoLists()     //new
-            attachCommentsToPosts()     //new
+            sortCommentsIntoLists()
+            attachCommentsToPosts()
         }
     }
 
@@ -95,14 +101,6 @@ class OverviewViewModel : ViewModel() {
         }
     }
 
-    private fun attachCommentsToPostsDEV() {
-        for(comment in _commentProperties.value!!) {
-            _postProperties.value!![comment.postId.toInt()-1].commentBody=comment.body
-            _postProperties.value!![comment.postId.toInt()-1].commentName=comment.name
-            _postProperties.value!![comment.postId.toInt()-1].commentEmail=comment.email
-        }
-    }
-    // NEW:
     private fun sortCommentsIntoLists() {
         val aList : MutableList<MutableList<CommentProperty>> = arrayListOf()
 
@@ -116,7 +114,7 @@ class OverviewViewModel : ViewModel() {
 
         _commentsSorted.value = aList
     }
-    // NEW:
+
     private fun attachCommentsToPosts() {
         for(list in _commentsSorted.value!!) {
             _postProperties.value!![list[0].postId.toInt()-1].commentCount = list.toList().size

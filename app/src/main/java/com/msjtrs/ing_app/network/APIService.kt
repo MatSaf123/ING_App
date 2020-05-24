@@ -4,6 +4,7 @@ import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterF
 import com.msjtrs.ing_app.domain.CommentProperty
 import com.msjtrs.ing_app.domain.PostProperty
 import com.msjtrs.ing_app.domain.UserProperty
+import com.msjtrs.ing_app.domain.PhotoProperty
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 import kotlinx.coroutines.Deferred
@@ -36,6 +37,10 @@ interface APIService {
     @GET("comments")
     fun getComments():
             Deferred<List<CommentProperty>>
+
+    @GET("photos")
+    fun getPhotos():
+        Deferred<List<PhotoProperty>>
 }
 
 object JsonplaceholderApi {
