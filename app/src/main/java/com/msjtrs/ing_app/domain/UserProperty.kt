@@ -15,4 +15,6 @@ data class UserProperty(
 
 ) : Parcelable {
 
+    lateinit var album : AlbumProperty
+
 }

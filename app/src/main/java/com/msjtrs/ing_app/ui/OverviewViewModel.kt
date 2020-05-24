@@ -4,12 +4,9 @@ import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.msjtrs.ing_app.domain.CommentProperty
 import com.msjtrs.ing_app.network.JsonplaceholderApi
-import com.msjtrs.ing_app.domain.PostProperty
-import com.msjtrs.ing_app.domain.UserProperty
 import androidx.lifecycle.viewModelScope
-import com.msjtrs.ing_app.domain.PhotoProperty
+import com.msjtrs.ing_app.domain.*
 import kotlinx.coroutines.launch
 import java.lang.Exception
 import kotlin.collections.ArrayList
@@ -42,6 +39,10 @@ class OverviewViewModel : ViewModel() {
     val photoProperties: LiveData<List<PhotoProperty>>
         get() = _photoProperties
 
+    private val _albumProperties = MutableLiveData<List<AlbumProperty>>()
+    val albumProperties: LiveData<List<AlbumProperty>>
+        get() = _albumProperties
+
     private val _navigateToUserProperty = MutableLiveData<PostProperty>()
     val navigateToUserProperty: LiveData<PostProperty>
         get() = _navigateToUserProperty
@@ -62,9 +63,11 @@ class OverviewViewModel : ViewModel() {
                 val listComments = JsonplaceholderApi.retrofitService.getComments().await()
                 val listPosts = JsonplaceholderApi.retrofitService.getPosts().await()
                 val listPhotos = JsonplaceholderApi.retrofitService.getPhotos().await()
+                val listAlbums = JsonplaceholderApi.retrofitService.getAlbums().await()
                 _status.value = AppStatus.DONE
 
                 _photoProperties.value = listPhotos
+                _albumProperties.value = listAlbums
                 _userProperties.value = listUsers
                 _commentProperties.value = listComments
                 _postProperties.value = listPosts
@@ -73,6 +76,8 @@ class OverviewViewModel : ViewModel() {
             catch(e: Exception) {
                 Log.d("Error_TryCatch",e.message.toString())
                 _status.value = AppStatus.ERROR
+                _photoProperties.value = ArrayList()
+                _albumProperties.value = ArrayList()
                 _userProperties.value = ArrayList()
                 _commentProperties.value = ArrayList()
                 _postProperties.value = ArrayList()
@@ -81,6 +86,8 @@ class OverviewViewModel : ViewModel() {
             setPosterProperties()
             sortCommentsIntoLists()
             attachCommentsToPosts()
+            attachAlbumsToUsers()
+            //Log.d("dev",userProperties.value!![6].album.photos[10].title)      //photos debug-test = "rerum doloremque occaecati reiciendis"
         }
     }
 
@@ -120,6 +127,23 @@ class OverviewViewModel : ViewModel() {
             _postProperties.value!![list[0].postId.toInt()-1].commentCount = list.toList().size
             _postProperties.value!![list[0].postId.toInt()-1].comments = list.toList()
         }
+    }
+
+    //TODO: Refactor this someway, there can't be so many loops in here
+    private fun attachAlbumsToUsers() {
+        val aList : MutableList<MutableList<PhotoProperty>> = arrayListOf()
+
+        for(album in _albumProperties.value!!)
+            aList.add(arrayListOf())
+
+        for(photo in _photoProperties.value!!)
+            aList[photo.albumId.toInt()-1].add(photo)
+
+        for(album in _albumProperties.value!!)
+            album.photos = aList[album.id.toInt()-1]
+
+        for(user in _userProperties.value!!)
+            user.album = _albumProperties.value!![user.id.toInt()-1]
     }
 
     fun displayUserProperties(postProperty: PostProperty){
