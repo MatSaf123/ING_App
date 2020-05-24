@@ -7,92 +7,33 @@
         <variable
             name="viewModel"
             type="com.msjtrs.ing_app.ui.CommentViewModel"/>
-        <variable
-            name="post"
-            type="com.msjtrs.ing_app.domain.PostProperty"/>
     </data>
 
-    <LinearLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/backgroundColor"
-        android:orientation="vertical"
-        android:padding="3dp">
+        tools:context=".MainActivity">
 
-        <TextView
-            android:id="@+id/comment_name"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:paddingBottom="6dp"
-            android:fontFamily="@font/roboto"
-            android:scaleType="centerCrop"
-            android:text="@{`Name: ` + viewModel.selectedProperty.comments[0].name + `\nEmail: ` + viewModel.selectedProperty.comments[0].email + `\nBody: ` + viewModel.selectedProperty.comments[0].body}"
-            android:textSize="14sp"
-            tools:text="@string/user_username" />
 
-        <View
-            style="@style/Divider"
-            android:layout_margin="10dp" />
-
-        <TextView
-        android:id="@+id/comment_name2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:paddingBottom="6dp"
-        android:fontFamily="@font/roboto"
-        android:scaleType="centerCrop"
-        android:text="@{`Name: ` + viewModel.selectedProperty.comments[1].name + `\nEmail: ` + viewModel.selectedProperty.comments[1].email + `\nBody: ` + viewModel.selectedProperty.comments[1].body}"
-        android:textSize="14sp"
-        tools:text="@string/user_username" />
-
-        <View
-            style="@style/Divider"
-            android:layout_margin="10dp" />
-
-        <TextView
-            android:id="@+id/comment_name3"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:paddingBottom="6dp"
-            android:fontFamily="@font/roboto"
-            android:scaleType="centerCrop"
-            android:text="@{`Name: ` + viewModel.selectedProperty.comments[2].name + `\nEmail: ` + viewModel.selectedProperty.comments[2].email + `\nBody: ` + viewModel.selectedProperty.comments[2].body}"
-            android:textSize="14sp"
-            tools:text="@string/user_username" />
-
-        <View
-            style="@style/Divider"
-            android:layout_margin="10dp" />
-
-        <TextView
-            android:id="@+id/comment_name4"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:paddingBottom="6dp"
-            android:fontFamily="@font/roboto"
-            android:scaleType="centerCrop"
-            android:text="@{`Name: ` + viewModel.selectedProperty.comments[3].name + `\nEmail: ` + viewModel.selectedProperty.comments[3].email + `\nBody: ` + viewModel.selectedProperty.comments[0].body}"
-            android:textSize="14sp"
-            tools:text="@string/user_username" />
-
-        <View
-            style="@style/Divider"
-            android:layout_margin="10dp" />
-
-        <TextView
-            android:id="@+id/comment_name5"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:paddingBottom="6dp"
-            android:fontFamily="@font/roboto"
-            android:scaleType="centerCrop"
-            android:text="@{`Name: ` + viewModel.selectedProperty.comments[4].name + `\nEmail: ` + viewModel.selectedProperty.comments[4].email + `\nBody: ` + viewModel.selectedProperty.comments[4].body}"
-            android:textSize="14sp"
-            tools:text="@string/user_username" />
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/comments_list"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:padding="6dp"
+            android:clipToPadding="false"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:spanCount="2"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:commentData="@{viewModel.selectedProperty.comments}"
+            tools:itemCount="16"
+            tools:listitem="@layout/comment_item">
+        </androidx.recyclerview.widget.RecyclerView>
 
 
 
-
-    </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </layout>
