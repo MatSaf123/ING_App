@@ -10,7 +10,7 @@ import androidx.recyclerview.widget.DiffUtil
 import kotlinx.android.synthetic.main.grid_view_item.view.*
 
 
-class PostAdapter(val usernameOnClickListener: UsernameOnClickListener, val onCommentsOnClickListener: CommentsOnClickListener) :
+class PostAdapter(private val usernameOnClickListener: UsernameOnClickListener,private  val onCommentsOnClickListener: CommentsOnClickListener) :
     ListAdapter<PostProperty, PostAdapter.PostViewHolder>(DiffCallback) {
 
     class PostViewHolder(private var binding : GridViewItemBinding) :

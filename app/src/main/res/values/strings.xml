@@ -18,6 +18,9 @@
     <string name="user_latitude">Latitude</string>
     <string name="user_longitude">Longitude</string>
     <string name="user_photos">Photos</string>
+    <string name="comment_name">Comment Name</string>
+    <string name="comment_email">Comment E-mail</string>
+    <string name="comment_body">Comment Body</string>
 
     <!--    MAPS    -->
     <string name="google_maps_key" templateMergeStrategy="preserve" translatable="false">AIzaSyDoHg_DZavRaNYX6275NRmU851fhdxedb0</string>

@@ -16,21 +16,21 @@
 
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/comments_list"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:padding="6dp"
-            android:clipToPadding="false"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-            app:spanCount="2"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:commentData="@{viewModel.selectedProperty.comments}"
-            tools:itemCount="16"
-            tools:listitem="@layout/comment_item">
-        </androidx.recyclerview.widget.RecyclerView>
+        android:id="@+id/comments_list"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:padding="6dp"
+        android:clipToPadding="false"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:spanCount="2"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:commentData="@{viewModel.selectedProperty.comments}"
+        tools:itemCount="16"
+        tools:listitem="@layout/comment_item">
+    </androidx.recyclerview.widget.RecyclerView>
 
 
 

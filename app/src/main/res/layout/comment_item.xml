@@ -11,28 +11,52 @@
             type="com.msjtrs.ing_app.domain.CommentProperty"/>
     </data>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="match_parent"
+        android:background="@color/backgroundColor"
+        android:orientation="vertical"
+        android:padding="6dp">
 
+        <!--    comment name    -->
         <TextView
             android:id="@+id/comment_name"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="@{comment.name"/>
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/roboto"
+            android:scaleType="centerCrop"
+            android:text="@{`Name: ` + comment.name}"
+            android:textSize="16sp"
+            tools:text="@string/comment_name" />
 
+        <!--    comment e-mail    -->
         <TextView
             android:id="@+id/comment_email"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="@{comment.email"/>
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/roboto"
+            android:scaleType="centerCrop"
+            android:text="@{`E-mail: ` + comment.email}"
+            android:textSize="16sp"
+            tools:text="@string/comment_email" />
 
+        <!--    comment body    -->
         <TextView
             android:id="@+id/comment_body"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="@{comment.body"/>
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/roboto"
+            android:scaleType="centerCrop"
+            android:text="@{`Body: ` + comment.body}"
+            android:textSize="16sp"
+            tools:text="@string/comment_body" />
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+        <!--    divider (gray horizontal line)    -->
+        <View
+            style="@style/Divider"
+            android:layout_margin="10dp" />
+
+    </LinearLayout>
+
 
 </layout>

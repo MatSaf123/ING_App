@@ -7,13 +7,14 @@ import androidx.recyclerview.widget.ListAdapter
 import com.msjtrs.ing_app.domain.UserProperty
 import com.msjtrs.ing_app.databinding.GridViewItemBinding
 import androidx.recyclerview.widget.DiffUtil
+import com.msjtrs.ing_app.databinding.CommentItemBinding
 import com.msjtrs.ing_app.domain.CommentProperty
 
 
 class CommentAdapter :
     ListAdapter<CommentProperty, CommentAdapter.PostViewHolder>(DiffCallback) {
 
-    class PostViewHolder(private var binding : GridViewItemBinding) :
+    class PostViewHolder(private var binding : CommentItemBinding) :
         RecyclerView.ViewHolder(binding.root) {
         fun bind(commentProperty: CommentProperty) {
             binding.comment = commentProperty
@@ -27,7 +28,7 @@ class CommentAdapter :
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PostViewHolder {
-        return PostViewHolder(GridViewItemBinding.inflate(LayoutInflater.from(parent.context))
+        return PostViewHolder(CommentItemBinding.inflate(LayoutInflater.from(parent.context))
         )
     }
 
