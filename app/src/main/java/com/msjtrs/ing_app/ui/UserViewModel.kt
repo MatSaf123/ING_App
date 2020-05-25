@@ -14,4 +14,16 @@ class UserViewModel(postProperty: PostProperty, app: Application): AndroidViewMo
     init {
         _selectedProperty.value = postProperty
     }
+
+    private val _navigateToPhotoProperty = MutableLiveData<PostProperty>()
+    val navigateToPhotoProperty: LiveData<PostProperty>
+        get() = _navigateToPhotoProperty
+
+    fun displayPhotoProperties(postProperty: PostProperty){
+        _navigateToPhotoProperty.value = postProperty
+    }
+
+    fun displayPhotoPropertiesComplete(){
+        _navigateToPhotoProperty.value = null
+    }
 }

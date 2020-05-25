@@ -51,6 +51,10 @@ class OverviewViewModel : ViewModel() {
     val navigateToCommentProperty: LiveData<PostProperty>
         get() = _navigateToCommentProperty
 
+    private val _navigateToPhotoProperty = MutableLiveData<PostProperty>()
+    val navigateToPhotoProperty: LiveData<PostProperty>
+        get() = _navigateToPhotoProperty
+
     init {
         getData()
     }
@@ -160,6 +164,14 @@ class OverviewViewModel : ViewModel() {
 
     fun displayCommentPropertiesComplete(){
         _navigateToCommentProperty.value = null
+    }
+
+    fun displayPhotoProperties(postProperty: PostProperty){
+        _navigateToPhotoProperty.value = postProperty
+    }
+
+    fun displayPhotoPropertiesComplete(){
+        _navigateToPhotoProperty.value = null
     }
 
 }

@@ -24,6 +24,7 @@ data class PostProperty(
     var commentCount : Int = 0
 
     lateinit var comments : List<CommentProperty>
+    lateinit var photos : List<PhotoProperty>
 
 
 

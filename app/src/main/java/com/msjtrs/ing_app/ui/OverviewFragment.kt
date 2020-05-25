@@ -28,7 +28,9 @@ class OverviewFragment : Fragment(){
 
         binding.postsList.adapter = PostAdapter(
             PostAdapter.UsernameOnClickListener { viewModel.displayUserProperties(it) },
-            PostAdapter.CommentsOnClickListener { viewModel.displayCommentProperties(it) }
+            PostAdapter.CommentsOnClickListener { viewModel.displayCommentProperties(it) },
+            PostAdapter.PhotosOnClickListener { viewModel.displayPhotoProperties(it)}
+
         )
 
 
@@ -43,6 +45,13 @@ class OverviewFragment : Fragment(){
             if(null!= it){
                 this.findNavController().navigate(OverviewFragmentDirections.navigateToComment(it))
                 viewModel.displayCommentPropertiesComplete()
+            }
+        })
+
+        viewModel.navigateToPhotoProperty.observe(viewLifecycleOwner, Observer {
+            if(null!= it){
+                this.findNavController().navigate(OverviewFragmentDirections.navigateToPhotos(it))
+                viewModel.displayPhotoPropertiesComplete()
             }
         })
 

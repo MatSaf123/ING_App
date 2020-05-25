@@ -17,6 +17,9 @@
         <action
             android:id="@+id/navigate_to_comment"
             app:destination="@+id/commentsFragment"/>
+        <action
+            android:id="@+id/navigate_to_photos"
+            app:destination="@+id/photosFragment"/>
     </fragment>
 
     <fragment
@@ -34,6 +37,17 @@
         android:name="com.msjtrs.ing_app.ui.UserFragment"
         android:label="user_fragment"
         tools:layout="@layout/user_fragment" >
+        <argument
+            android:name="selectedProperty"
+            app:argType="com.msjtrs.ing_app.domain.PostProperty"/>
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/photosFragment"
+        android:name="com.msjtrs.ing_app.ui.PhotoFragment"
+        android:label="photo_fragment"
+        tools:layout="@layout/photo_fragment" >
         <argument
             android:name="selectedProperty"
             app:argType="com.msjtrs.ing_app.domain.PostProperty"/>

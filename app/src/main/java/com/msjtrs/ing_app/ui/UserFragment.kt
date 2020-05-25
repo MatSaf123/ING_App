@@ -7,12 +7,15 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
+import androidx.navigation.fragment.findNavController
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
+import com.msjtrs.ing_app.adapters.UserAdapter
 
 import com.msjtrs.ing_app.databinding.UserFragmentBinding
 import com.msjtrs.ing_app.domain.PostProperty
@@ -20,6 +23,11 @@ import kotlinx.android.synthetic.main.user_fragment.*
 
 
 class UserFragment : Fragment(), OnMapReadyCallback {
+    private val viewModel: UserViewModel by lazy {
+        ViewModelProviders.of(this).get(UserViewModel::class.java)
+    }
+
+
     private lateinit var googleMap: GoogleMap
     private lateinit var userGeoLocation: PostProperty
     private var userLatitude: Double = 0.0
@@ -50,6 +58,9 @@ class UserFragment : Fragment(), OnMapReadyCallback {
         val viewModelFactory = UserViewModelFactory(postProperty, application)
 
         binding.viewModel = ViewModelProviders.of(this, viewModelFactory).get(UserViewModel::class.java)
+
+
+
         return binding.root
     }
 

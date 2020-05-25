@@ -10,7 +10,10 @@ import androidx.recyclerview.widget.DiffUtil
 import kotlinx.android.synthetic.main.grid_view_item.view.*
 
 
-class PostAdapter(private val usernameOnClickListener: UsernameOnClickListener,private  val onCommentsOnClickListener: CommentsOnClickListener) :
+class PostAdapter(
+    private val usernameOnClickListener: UsernameOnClickListener,
+    private  val onCommentsOnClickListener: CommentsOnClickListener,
+    private val onPhotoOnClickListener: PhotosOnClickListener) :
     ListAdapter<PostProperty, PostAdapter.PostViewHolder>(DiffCallback) {
 
     class PostViewHolder(private var binding : GridViewItemBinding) :
@@ -40,6 +43,9 @@ class PostAdapter(private val usernameOnClickListener: UsernameOnClickListener,p
         holder.itemView.id_comment.setOnClickListener {
             onCommentsOnClickListener.onClick(postProperty)
         }
+        holder.itemView.id_photos.setOnClickListener{
+            onPhotoOnClickListener.onClick(postProperty)
+        }
 
     }
 
@@ -48,6 +54,10 @@ class PostAdapter(private val usernameOnClickListener: UsernameOnClickListener,p
     }
 
     class CommentsOnClickListener(val clickListener: (postProperty: PostProperty) -> Unit){
+        fun onClick(postProperty: PostProperty) = clickListener(postProperty)
+    }
+
+    class PhotosOnClickListener(val clickListener: (postProperty: PostProperty) -> Unit){
         fun onClick(postProperty: PostProperty) = clickListener(postProperty)
     }
 

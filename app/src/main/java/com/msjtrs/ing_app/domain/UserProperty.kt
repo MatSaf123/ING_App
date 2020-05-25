@@ -16,5 +16,6 @@ data class UserProperty(
 ) : Parcelable {
 
     lateinit var album : AlbumProperty
+    //lateinit var photos : List<PhotoProperty>
 
 }
