@@ -2,11 +2,11 @@ package com.msjtrs.ing_app.adapters
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import androidx.recyclerview.widget.RecyclerView
-import androidx.recyclerview.widget.ListAdapter
-import com.msjtrs.ing_app.domain.PostProperty
-import com.msjtrs.ing_app.databinding.GridViewItemBinding
 import androidx.recyclerview.widget.DiffUtil
+import androidx.recyclerview.widget.ListAdapter
+import androidx.recyclerview.widget.RecyclerView
+import com.msjtrs.ing_app.databinding.GridViewItemBinding
+import com.msjtrs.ing_app.domain.PostProperty
 import kotlinx.android.synthetic.main.grid_view_item.view.*
 
 
@@ -33,7 +33,8 @@ class PostAdapter(private val usernameOnClickListener: UsernameOnClickListener,p
 
     override fun onBindViewHolder(holder: PostViewHolder, position: Int) {
         val postProperty = getItem(position)
-        holder.bind(postProperty)
+
+        holder.bind(postProperty)       //mozna tu liste dac
         holder.itemView.id_user.setOnClickListener {
             usernameOnClickListener.onClick(postProperty)
         }
@@ -50,6 +51,4 @@ class PostAdapter(private val usernameOnClickListener: UsernameOnClickListener,p
     class CommentsOnClickListener(val clickListener: (postProperty: PostProperty) -> Unit){
         fun onClick(postProperty: PostProperty) = clickListener(postProperty)
     }
-
-
 }

@@ -10,9 +10,10 @@ import kotlinx.coroutines.Deferred
 import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
 import retrofit2.http.GET
+import retrofit2.http.Query
 
 
-private const val BASE_URL = "https://jsonplaceholder.typicode.com/"
+private const val BASE_URL = "https://jsonplaceholder.typicode.com"
 
 private val moshi = Moshi.Builder()
     .add(KotlinJsonAdapterFactory())
@@ -25,17 +26,18 @@ private val retrofit = Retrofit.Builder()
     .build()
 
 interface APIService {
-    @GET("posts")
-    fun getPosts():
+    @GET("/posts")
+    fun getPosts(@Query("id_gte") gte : String, @Query("id_lte") lte : String):
             Deferred<List<PostProperty>>
 
-    @GET("users")
+    @GET("/users")
     fun getUsers():
             Deferred<List<UserProperty>>
 
-    @GET("comments")
-    fun getComments():
+    @GET("/comments")
+    fun getComments(@Query("postId_gte") gte : String, @Query("postId_lte") lte : String):
             Deferred<List<CommentProperty>>
+
 }
 
 object JsonplaceholderApi {
@@ -43,3 +45,14 @@ object JsonplaceholderApi {
         retrofit.create(APIService::class.java)
     }
 }
+
+/*
+    @GET("group/{id}/users")
+    Call<List<User>> groupList(@Path("id") int groupId, @QueryMap Map<String, String> options);
+ */
+
+/*
+
+QUERY = http://jsonplaceholder.typicode.com/photos ?_start=0&_limit=5
+
+ */

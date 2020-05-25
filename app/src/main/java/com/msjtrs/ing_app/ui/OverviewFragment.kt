@@ -31,7 +31,6 @@ class OverviewFragment : Fragment(){
             PostAdapter.CommentsOnClickListener { viewModel.displayCommentProperties(it) }
         )
 
-
         viewModel.navigateToUserProperty.observe(viewLifecycleOwner, Observer {
             if(null!= it){
                 this.findNavController().navigate(OverviewFragmentDirections.navigateToUser(it))

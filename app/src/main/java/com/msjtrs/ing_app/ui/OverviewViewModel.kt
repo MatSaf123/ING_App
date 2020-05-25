@@ -46,16 +46,16 @@ class OverviewViewModel : ViewModel() {
         get() = _navigateToCommentProperty
 
     init {
-        getData()
+        getData(0,10)
     }
 
-    private fun getData() {
+    private fun getData(botID : Int, topID : Int) {
         viewModelScope.launch {
             try {
                 _status.value = AppStatus.LOADING
                 val listUsers = JsonplaceholderApi.retrofitService.getUsers().await()
-                val listComments = JsonplaceholderApi.retrofitService.getComments().await()
-                val listPosts = JsonplaceholderApi.retrofitService.getPosts().await()
+                val listPosts = JsonplaceholderApi.retrofitService.getPosts(botID.toString(),topID.toString()).await()
+                val listComments = JsonplaceholderApi.retrofitService.getComments(botID.toString(),topID.toString()).await()
                 _status.value = AppStatus.DONE
 
                 _userProperties.value = listUsers
@@ -72,7 +72,6 @@ class OverviewViewModel : ViewModel() {
             }
 
             setPosterProperties()
-            attachCommentsToPostsDEV()
             sortCommentsIntoLists()     //new
             attachCommentsToPosts()     //new
         }
@@ -95,19 +94,12 @@ class OverviewViewModel : ViewModel() {
         }
     }
 
-    private fun attachCommentsToPostsDEV() {
-        for(comment in _commentProperties.value!!) {
-            _postProperties.value!![comment.postId.toInt()-1].commentBody=comment.body
-            _postProperties.value!![comment.postId.toInt()-1].commentName=comment.name
-            _postProperties.value!![comment.postId.toInt()-1].commentEmail=comment.email
-        }
-    }
     // NEW:
     private fun sortCommentsIntoLists() {
         val aList : MutableList<MutableList<CommentProperty>> = arrayListOf()
 
         for(post in _postProperties.value!!) {
-            aList.add(arrayListOf())
+            aList.add(post.id.toInt()-1, arrayListOf())
         }
 
         for(comment in _commentProperties.value!!) {
