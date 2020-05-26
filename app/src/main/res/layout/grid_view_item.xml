@@ -52,7 +52,7 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/roboto"
                 android:scaleType="centerCrop"
-                android:text="@{post.posterName}"
+                android:text="@{post.user.username}"
                 android:textSize="18sp"
                 tools:text="@string/user_username" />
         </GridLayout>

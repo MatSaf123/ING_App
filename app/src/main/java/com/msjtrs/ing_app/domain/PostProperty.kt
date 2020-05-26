@@ -13,16 +13,8 @@ data class PostProperty(
     val body: String
 ) : Parcelable {
 
-    lateinit var posterName : String
-    lateinit var posterEmail: String
-    lateinit var posterWebsite: String
-    lateinit var posterStreet: String
-    lateinit var posterCity: String
-    lateinit var posterZipcode: String
-    lateinit var posterGeoLatitude: String
-    lateinit var posterGeoLongitude: String
     var commentCount : Int = 0
-
+    lateinit var user : UserProperty
     lateinit var comments : List<CommentProperty>
     lateinit var photos : List<PhotoProperty>
 

@@ -95,20 +95,11 @@ class OverviewViewModel : ViewModel() {
         }
     }
 
-    //TODO: Refactor, redo to pass UserProperty object instead of strings
     private fun setPosterProperties() {
         for(post in _postProperties.value!!) {
-            val user : UserProperty? = _userProperties.value?.get(post.userId.toInt()-1)
-            if(user != null) {
-                post.posterName = user.username
-                post.posterEmail = user.email
-                post.posterWebsite = user.website
-                post.posterStreet = user.address.street
-                post.posterCity = user.address.city
-                post.posterZipcode = user.address.zipcode
-                post.posterGeoLatitude = user.address.geo.lat
-                post.posterGeoLongitude = user.address.geo.lng
-            }
+            val user : UserProperty? = _userProperties.value!![post.userId.toInt()-1]
+            if (user != null)
+                post.user = user
         }
     }
 

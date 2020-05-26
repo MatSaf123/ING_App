@@ -45,8 +45,8 @@ class UserFragment : Fragment(), OnMapReadyCallback {
                               savedInstanceState: Bundle?): View? {
 
         val userGeoLocation = UserFragmentArgs.fromBundle(requireArguments()).selectedProperty
-        userLatitude = userGeoLocation.posterGeoLatitude.toDouble()
-        userLongitude = userGeoLocation.posterGeoLongitude.toDouble()
+        userLatitude = userGeoLocation.user.address.geo.lat.toDouble()
+        userLongitude = userGeoLocation.user.address.geo.lng.toDouble()
 
         val application = requireNotNull(activity).application
         val binding = UserFragmentBinding.inflate(inflater)
