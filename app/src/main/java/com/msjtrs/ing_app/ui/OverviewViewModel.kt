@@ -138,11 +138,17 @@ class OverviewViewModel : ViewModel() {
         for(album in _albumProperties.value!!)
             album.photos = aList[album.id.toInt()-1]
 
-        for(user in _userProperties.value!!)
-            user.album = _albumProperties.value!![user.id.toInt()-1]
+        for(user in _userProperties.value!!) {
+            var list : MutableList<AlbumProperty> = ArrayList()
+            for(album in _albumProperties.value!!)
+                if(user.id == album.userId)
+                    list.add(album)
+
+            user.albums = list
+        }
 
         for(post in _postProperties.value!!)
-            post.user.album = _albumProperties.value!![post.user.id.toInt()-1]
+            post.user.albums = _userProperties.value!![post.userId.toInt()-1].albums
     }
 
     fun displayUserProperties(postProperty: PostProperty){
