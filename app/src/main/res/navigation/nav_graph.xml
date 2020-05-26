@@ -40,6 +40,9 @@
         <argument
             android:name="selectedProperty"
             app:argType="com.msjtrs.ing_app.domain.PostProperty"/>
+        <action
+            android:id="@+id/navigate_to_photos"
+            app:destination="@+id/photosFragment"/>
 
     </fragment>
 

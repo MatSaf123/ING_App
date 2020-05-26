@@ -71,7 +71,7 @@
             android:layout_height="30dp"
             android:fontFamily="@font/roboto"
             android:scaleType="centerCrop"
-            android:text="@{`City: ` + viewModel.selectedProperty.user.address.street}"
+            android:text="@{`City: ` + viewModel.selectedProperty.user.address.city}"
             tools:text="@string/user_city"
             android:textSize="18sp" />
 
@@ -104,6 +104,7 @@
         <!-- photos -->
         <TextView
             android:id="@+id/user_photos"
+            android:layout_gravity="center_horizontal"
             android:layout_width="wrap_content"
             android:layout_height="30dp"
             android:fontFamily="@font/roboto"

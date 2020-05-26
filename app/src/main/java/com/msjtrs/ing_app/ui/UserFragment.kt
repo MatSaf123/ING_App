@@ -59,6 +59,17 @@ class UserFragment : Fragment(), OnMapReadyCallback {
 
         binding.viewModel = ViewModelProviders.of(this, viewModelFactory).get(UserViewModel::class.java)
 
+        binding.userPhotos.setOnClickListener{
+            viewModel.displayPhotoProperties(postProperty)
+        }
+
+        viewModel.navigateToPhotoProperty.observe(viewLifecycleOwner, Observer {
+            if(null != it){
+                this.findNavController().navigate(UserFragmentDirections.navigateToPhotos(it))
+                viewModel.displayPhotoPropertiesComplete()
+            }
+        })
+
 
 
         return binding.root
