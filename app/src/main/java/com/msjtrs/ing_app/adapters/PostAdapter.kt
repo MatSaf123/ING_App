@@ -12,8 +12,7 @@ import kotlinx.android.synthetic.main.grid_view_item.view.*
 
 class PostAdapter(
     private val usernameOnClickListener: UsernameOnClickListener,
-    private  val onCommentsOnClickListener: CommentsOnClickListener,
-    private val onPhotoOnClickListener: PhotosOnClickListener) :
+    private  val onCommentsOnClickListener: CommentsOnClickListener) :
     ListAdapter<PostProperty, PostAdapter.PostViewHolder>(DiffCallback) {
 
     class PostViewHolder(private var binding : GridViewItemBinding) :
@@ -43,9 +42,7 @@ class PostAdapter(
         holder.itemView.id_comment.setOnClickListener {
             onCommentsOnClickListener.onClick(postProperty)
         }
-        holder.itemView.id_photos.setOnClickListener{
-            onPhotoOnClickListener.onClick(postProperty)
-        }
+
 
     }
 
@@ -57,9 +54,7 @@ class PostAdapter(
         fun onClick(postProperty: PostProperty) = clickListener(postProperty)
     }
 
-    class PhotosOnClickListener(val clickListener: (postProperty: PostProperty) -> Unit){
-        fun onClick(postProperty: PostProperty) = clickListener(postProperty)
-    }
+
 
 
 }

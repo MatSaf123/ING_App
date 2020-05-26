@@ -150,35 +150,6 @@
                 tools:text="Number of comments"/>
         </GridLayout>
 
-        <GridLayout
-            android:id="@+id/id_photos"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:useDefaultMargins="true">
-
-            <!-- comment image -->
-            <ImageView
-                android:id="@+id/photo_image"
-                android:layout_width="17dp"
-                android:layout_height="17dp"
-                android:layout_gravity="center_horizontal"
-                android:contentDescription="@string/comment_image"
-                app:srcCompat="@drawable/ic_comment"
-                tools:src="@drawable/ic_comment" />
-
-            <!-- comment text -->
-            <TextView
-                android:id="@+id/photo_text"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:adjustViewBounds="true"
-                android:fontFamily="@font/roboto_condensed_light"
-                android:scaleType="centerCrop"
-                android:text="@{`Photos `}"
-                android:textSize="14sp"
-                tools:text="Number of comments"/>
-        </GridLayout>
 
         <!-- SEPARATORS (gray horizontal lines) -->
         <View

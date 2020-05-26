@@ -17,9 +17,6 @@
         <action
             android:id="@+id/navigate_to_comment"
             app:destination="@+id/commentsFragment"/>
-        <action
-            android:id="@+id/navigate_to_photos"
-            app:destination="@+id/photosFragment"/>
     </fragment>
 
     <fragment
