@@ -123,18 +123,9 @@
             android:id="@+id/id_comment"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_gravity="end"
             android:orientation="horizontal"
             android:useDefaultMargins="true">
-
-            <!-- comment image -->
-            <ImageView
-                android:id="@+id/comment_image"
-                android:layout_width="17dp"
-                android:layout_height="17dp"
-                android:layout_gravity="center_horizontal"
-                android:contentDescription="@string/comment_image"
-                app:srcCompat="@drawable/ic_comment"
-                tools:src="@drawable/ic_comment" />
 
             <!-- comment text -->
             <TextView
@@ -146,13 +137,14 @@
                 android:scaleType="centerCrop"
                 android:text="@{`Comments: ` + Integer.toString(post.commentCount)}"
                 android:textSize="14sp"
-                tools:text="Number of comments"/>
+                tools:text="Number of comments" />
         </GridLayout>
 
 
         <!-- SEPARATORS (gray horizontal lines) -->
         <View
             style="@style/Divider"
+            android:layout_gravity="center"
             android:layout_margin="10dp" />
 
     </LinearLayout>

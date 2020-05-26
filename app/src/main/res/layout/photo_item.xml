@@ -15,16 +15,16 @@
 
     </data>
 
-        <!--    photo URL    -->
-        <ImageView
-            android:id="@+id/user_photo"
-            android:layout_width="150dp"
-            android:layout_height="150dp"
-            android:scaleType="centerCrop"
-            android:adjustViewBounds="true"
-            android:padding="2dp"
-            app:imageUrl="@{photo.thumbnailUrl}"
-            tools:src="@tools:sample/backgrounds/scenic"/>
+    <!--    photo URL    -->
+    <ImageView
+        android:id="@+id/user_photo"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:scaleType="centerCrop"
+        android:adjustViewBounds="true"
+        android:padding="2dp"
+        app:imageUrl="@{photo.thumbnailUrl}"
+        tools:src="@tools:sample/backgrounds/scenic"/>
 
 
 
