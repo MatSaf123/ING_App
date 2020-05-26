@@ -92,7 +92,7 @@ class OverviewViewModel : ViewModel() {
             attachCommentsToPosts()
             attachAlbumsToUsers()
 
-            //Log.d("dev",userProperties.value!![6].album.photos[10].title)      //photos debug-test = "rerum doloremque occaecati reiciendis"
+            Log.d("dev",userProperties.value!![6].albums[2].photos[10].title)      //photos debug-test = "rerum doloremque occaecati reiciendis"
         }
     }
 

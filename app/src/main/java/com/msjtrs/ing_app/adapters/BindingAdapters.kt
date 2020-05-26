@@ -6,10 +6,7 @@ import androidx.databinding.BindingAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.msjtrs.ing_app.R
 import com.msjtrs.ing_app.R.drawable.loading_animation
-import com.msjtrs.ing_app.domain.CommentProperty
-import com.msjtrs.ing_app.domain.PhotoProperty
-import com.msjtrs.ing_app.domain.PostProperty
-import com.msjtrs.ing_app.domain.UserProperty
+import com.msjtrs.ing_app.domain.*
 import com.msjtrs.ing_app.ui.AppStatus
 import com.squareup.picasso.Picasso
 
@@ -51,9 +48,12 @@ fun bindCommentData(recyclerView: RecyclerView, data: List<CommentProperty>?) {
 }
 
 @BindingAdapter("photoData")
-fun bindPhotoData(recyclerView: RecyclerView, data: List<PhotoProperty>?) {
+fun bindPhotoData(recyclerView: RecyclerView, data: List<AlbumProperty>?) {
     val adapter = recyclerView.adapter as PhotoAdapter
-    adapter.submitList(data)
+    val list : MutableList<PhotoProperty> = arrayListOf()
+    for(album in data!!)
+        list.addAll(album.photos)
+    adapter.submitList(list)
 }
 
 @BindingAdapter("imageUrl")

@@ -27,7 +27,7 @@
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:photoData="@{viewModel.selectedProperty.user.album.photos}"
+            app:photoData="@{viewModel.selectedProperty.user.albums}"
             tools:listitem="@layout/photo_item">
         </androidx.recyclerview.widget.RecyclerView>
 
