@@ -22,10 +22,6 @@
     <string name="comment_email">Comment E-mail</string>
     <string name="comment_body">Comment Body</string>
 
-    <string name="photo_id">Photo ID</string>
-    <string name="photo_url">photo URL</string>
-
-
     <!--    MAPS    -->
     <string name="google_maps_key" templateMergeStrategy="preserve" translatable="false">AIzaSyDoHg_DZavRaNYX6275NRmU851fhdxedb0</string>
 
