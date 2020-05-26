@@ -11,6 +11,7 @@ import com.msjtrs.ing_app.domain.PhotoProperty
 import com.msjtrs.ing_app.domain.PostProperty
 import com.msjtrs.ing_app.domain.UserProperty
 import com.msjtrs.ing_app.ui.AppStatus
+import com.squareup.picasso.Picasso
 
 
 @BindingAdapter("appStatus")
@@ -53,4 +54,15 @@ fun bindCommentData(recyclerView: RecyclerView, data: List<CommentProperty>?) {
 fun bindPhotoData(recyclerView: RecyclerView, data: List<PhotoProperty>?) {
     val adapter = recyclerView.adapter as PhotoAdapter
     adapter.submitList(data)
+}
+
+@BindingAdapter("imageUrl")
+fun bindImage(imgView : ImageView, imgUrl: String?){
+    imgUrl?.let {
+        Picasso.get()
+            .load(imgUrl)
+            .resize(150,150)
+            .placeholder(loading_animation)
+            .into(imgView)
+    }
 }

@@ -91,6 +91,7 @@ class OverviewViewModel : ViewModel() {
             sortCommentsIntoLists()
             attachCommentsToPosts()
             attachAlbumsToUsers()
+
             //Log.d("dev",userProperties.value!![6].album.photos[10].title)      //photos debug-test = "rerum doloremque occaecati reiciendis"
         }
     }
@@ -139,6 +140,9 @@ class OverviewViewModel : ViewModel() {
 
         for(user in _userProperties.value!!)
             user.album = _albumProperties.value!![user.id.toInt()-1]
+
+        for(post in _postProperties.value!!)
+            post.user.album = _albumProperties.value!![post.user.id.toInt()-1]
     }
 
     fun displayUserProperties(postProperty: PostProperty){

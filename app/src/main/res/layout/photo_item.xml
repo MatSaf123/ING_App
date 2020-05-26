@@ -9,44 +9,23 @@
         <variable
             name="photo"
             type="com.msjtrs.ing_app.domain.PhotoProperty"/>
+        <variable
+            name="album"
+            type="com.msjtrs.ing_app.domain.AlbumProperty"/>
+
     </data>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@color/backgroundColor"
-        android:orientation="vertical"
-        android:padding="6dp">
-
-        <!--    photo ID    -->
-        <TextView
-            android:id="@+id/comment_name"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/roboto"
-            android:scaleType="centerCrop"
-            android:text="@{`Name: `}"
-            android:textSize="16sp"
-            tools:text="@string/photo_id" />
-
         <!--    photo URL    -->
-        <TextView
-            android:id="@+id/comment_email"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/roboto"
+        <ImageView
+            android:id="@+id/user_photo"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
             android:scaleType="centerCrop"
-            android:text="@{`URL: `}"
-            android:textSize="16sp"
-            tools:text="@string/photo_url" />
+            android:adjustViewBounds="true"
+            android:padding="2dp"
+            app:imageUrl="@{photo.thumbnailUrl}"
+            tools:src="@tools:sample/backgrounds/scenic"/>
 
-
-        <!--    divider (gray horizontal line)    -->
-        <View
-            style="@style/Divider"
-            android:layout_margin="10dp" />
-
-    </LinearLayout>
 
 
 </layout>

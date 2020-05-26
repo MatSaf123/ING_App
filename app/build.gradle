@@ -67,7 +67,12 @@ dependencies {
     // Timber
     implementation 'com.jakewharton.timber:timber:4.7.1'
 
+    // Google Maps
     implementation 'com.google.android.gms:play-services-maps:11.8.0'
+
+    // Picasso
+    implementation 'com.squareup.picasso:picasso:2.71828'
+
 
 
 
