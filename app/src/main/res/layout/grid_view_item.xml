@@ -10,9 +10,6 @@
         <variable
             name="post"
             type="com.msjtrs.ing_app.domain.PostProperty"/>
-<!--        <variable-->
-<!--            name="comment"-->
-<!--            type="com.msjtrs.ing_app.domain.CommentProperty"/>-->
     </data>
 
 
