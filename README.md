@@ -1,8 +1,8 @@
 ﻿# Profile Display App
 
 ## SCREENY
-<img src = "https://raw.githubusercontent.com/MatSaf123/ING_App/master/app.gif"
-data-canonical-src = "https://raw.githubusercontent.com/MatSaf123/ING_App/master/app.gif" width="331" height="700" />
+<img src = "https://github.com/MatSaf123/ING_App/blob/master/app_gif.gif"
+data-canonical-src = "https://github.com/MatSaf123/ING_App/blob/master/app_gif.gif" width="331" height="700" />
    
 <img src = "https://i.imgur.com/KTYaZUc.jpg"
 data-canonical-src = "https://i.imgur.com/KTYaZUc.jpg" width="331" height="700" />
