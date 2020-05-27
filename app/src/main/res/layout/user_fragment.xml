@@ -9,107 +9,121 @@
             type="com.msjtrs.ing_app.ui.UserViewModel"/>
         <variable
             name="post"
-            type="com.msjtrs.ing_app.domain.PostProperty"/>
+            type="com.msjtrs.ing_app.domain.UserProperty"/>
     </data>
 
-    <LinearLayout
+
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/backgroundColor"
-        android:orientation="vertical"
-        android:padding="6dp"
-        tools:context=".DetailFragment">
+        android:background="@color/backgroundColor">
 
-        <!-- username -->
-        <TextView
-            android:id="@+id/user_text"
-            android:layout_width="300dp"
-            android:layout_height="30dp"
-            android:fontFamily="@font/roboto"
-            android:scaleType="centerCrop"
-            android:text="@{`Username: ` + viewModel.selectedProperty.posterName}"
-            tools:text="@string/user_username"
-            android:textSize="18sp" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/backgroundColor"
+            android:orientation="vertical"
+            android:padding="6dp"
+            tools:context=".DetailFragment">
 
-        <!-- email -->
-        <TextView
-            android:id="@+id/user_email"
-            android:layout_width="wrap_content"
-            android:layout_height="30dp"
-            android:fontFamily="@font/roboto"
-            android:scaleType="centerCrop"
-            android:text="@{`E-mail: ` + viewModel.selectedProperty.posterEmail}"
-            tools:text="@string/user_email"
-            android:textSize="18sp" />
+            <!-- username -->
+            <TextView
+                android:id="@+id/user_text"
+                android:layout_width="300dp"
+                android:layout_height="30dp"
+                android:fontFamily="@font/roboto"
+                android:scaleType="centerCrop"
+                android:text="@{`Username: ` + viewModel.selectedProperty.username}"
+                android:textSize="18sp"
+                tools:text="@string/user_username" />
 
-        <!-- website -->
-        <TextView
-            android:id="@+id/user_website"
-            android:layout_width="wrap_content"
-            android:layout_height="30dp"
-            android:fontFamily="@font/roboto"
-            android:scaleType="centerCrop"
-            android:text="@{`Website: ` + viewModel.selectedProperty.posterWebsite}"
-            tools:text="@string/user_website"
-            android:textSize="18sp" />
+            <!-- email -->
+            <TextView
+                android:id="@+id/user_email"
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:fontFamily="@font/roboto"
+                android:scaleType="centerCrop"
+                android:text="@{`E-mail: ` + viewModel.selectedProperty.email}"
+                android:textSize="18sp"
+                tools:text="@string/user_email" />
 
-        <!-- street -->
-        <TextView
-            android:id="@+id/user_street"
-            android:layout_width="wrap_content"
-            android:layout_height="30dp"
-            android:fontFamily="@font/roboto"
-            android:scaleType="centerCrop"
-            android:text="@{`Street: ` + viewModel.selectedProperty.posterStreet}"
-            tools:text="@string/user_street"
-            android:textSize="18sp" />
+            <!-- website -->
+            <TextView
+                android:id="@+id/user_website"
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:fontFamily="@font/roboto"
+                android:scaleType="centerCrop"
+                android:text="@{`Website: ` + viewModel.selectedProperty.website}"
+                android:textSize="18sp"
+                tools:text="@string/user_website" />
 
-        <!-- city -->
-        <TextView
-            android:id="@+id/user_city"
-            android:layout_width="wrap_content"
-            android:layout_height="30dp"
-            android:fontFamily="@font/roboto"
-            android:scaleType="centerCrop"
-            android:text="@{`City: ` + viewModel.selectedProperty.posterCity}"
-            tools:text="@string/user_city"
-            android:textSize="18sp" />
+            <!-- street -->
+            <TextView
+                android:id="@+id/user_street"
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:fontFamily="@font/roboto"
+                android:scaleType="centerCrop"
+                android:text="@{`Street: ` + viewModel.selectedProperty.address.street}"
+                android:textSize="18sp"
+                tools:text="@string/user_street" />
 
-        <!-- zip-code -->
-        <TextView
-            android:id="@+id/user_zipcode"
-            android:layout_width="wrap_content"
-            android:layout_height="30dp"
-            android:fontFamily="@font/roboto"
-            android:scaleType="centerCrop"
-            android:text="@{`Zipcode: ` + viewModel.selectedProperty.posterZipcode}"
-            tools:text="@string/user_zipcode"
-            android:textSize="18sp" />
+            <!-- city -->
+            <TextView
+                android:id="@+id/user_city"
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:fontFamily="@font/roboto"
+                android:scaleType="centerCrop"
+                android:text="@{`City: ` + viewModel.selectedProperty.address.city}"
+                android:textSize="18sp"
+                tools:text="@string/user_city" />
+
+            <!-- zip-code -->
+            <TextView
+                android:id="@+id/user_zipcode"
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:fontFamily="@font/roboto"
+                android:scaleType="centerCrop"
+                android:text="@{`Zipcode: ` + viewModel.selectedProperty.address.zipcode}"
+                android:textSize="18sp"
+                tools:text="@string/user_zipcode" />
 
 
-        <!-- google map -->
-        <com.google.android.gms.maps.MapView
-            android:id="@+id/map_view"
-            android:layout_width="300dp"
-            android:layout_height="400dp"
-            android:layout_marginTop="24dp"
-            android:layout_gravity="center_horizontal" />
+            <!-- google map -->
+            <com.google.android.gms.maps.MapView
+                android:id="@+id/map_view"
+                android:layout_width="280dp"
+                android:layout_height="400dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="24dp" />
 
-        <!-- SEPARATORS (gray horizontal lines) -->
-        <View style="@style/Divider_invisible" />
-        <View style="@style/Divider" />
-        <View style="@style/Divider_invisible" />
+            <!-- SEPARATORS (gray horizontal lines) -->
+            <View style="@style/Divider_invisible" />
 
-        <!--        TODO  implement photos on button click      -->
-        <!-- photos -->
-        <TextView
-            android:id="@+id/user_photos"
-            android:layout_width="wrap_content"
-            android:layout_height="30dp"
-            android:fontFamily="@font/roboto"
-            android:scaleType="centerCrop"
-            android:text="@string/user_photos"
-            tools:text="@string/user_photos"
-            android:textSize="18sp" />
-    </LinearLayout>
+            <View
+                style="@style/Divider"
+                android:layout_gravity="center"/>
+
+            <View style="@style/Divider_invisible" />
+
+
+            <!-- photos - link to album with user's photos -->
+            <TextView
+                android:id="@+id/user_photos"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:layout_gravity="center_horizontal"
+                android:fontFamily="@font/roboto"
+                android:scaleType="centerCrop"
+                android:text="@string/user_photos"
+                android:textSize="18sp"
+                tools:text="@string/user_photos" />
+
+
+        </LinearLayout>
+    </ScrollView>
 </layout>

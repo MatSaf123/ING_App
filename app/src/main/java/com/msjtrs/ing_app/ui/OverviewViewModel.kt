@@ -4,11 +4,9 @@ import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.msjtrs.ing_app.domain.CommentProperty
 import com.msjtrs.ing_app.network.JsonplaceholderApi
-import com.msjtrs.ing_app.domain.PostProperty
-import com.msjtrs.ing_app.domain.UserProperty
 import androidx.lifecycle.viewModelScope
+import com.msjtrs.ing_app.domain.*
 import kotlinx.coroutines.launch
 import java.lang.Exception
 import kotlin.collections.ArrayList
@@ -37,13 +35,22 @@ class OverviewViewModel : ViewModel() {
     val commentsSorted: LiveData<MutableList<MutableList<CommentProperty>>>
         get() = _commentsSorted
 
-    private val _navigateToUserProperty = MutableLiveData<PostProperty>()
-    val navigateToUserProperty: LiveData<PostProperty>
+    private val _photoProperties = MutableLiveData<List<PhotoProperty>>()
+    val photoProperties: LiveData<List<PhotoProperty>>
+        get() = _photoProperties
+
+    private val _albumProperties = MutableLiveData<List<AlbumProperty>>()
+    val albumProperties: LiveData<List<AlbumProperty>>
+        get() = _albumProperties
+
+    private val _navigateToUserProperty = MutableLiveData<UserProperty>()
+    val navigateToUserProperty: LiveData<UserProperty>
         get() = _navigateToUserProperty
 
     private val _navigateToCommentProperty = MutableLiveData<PostProperty>()
     val navigateToCommentProperty: LiveData<PostProperty>
         get() = _navigateToCommentProperty
+
 
     init {
         getData(0,10)
@@ -56,8 +63,13 @@ class OverviewViewModel : ViewModel() {
                 val listUsers = JsonplaceholderApi.retrofitService.getUsers().await()
                 val listPosts = JsonplaceholderApi.retrofitService.getPosts(botID.toString(),topID.toString()).await()
                 val listComments = JsonplaceholderApi.retrofitService.getComments(botID.toString(),topID.toString()).await()
+                val listPhotos = JsonplaceholderApi.retrofitService.getPhotos().await()
+                val listAlbums = JsonplaceholderApi.retrofitService.getAlbums().await()
+
                 _status.value = AppStatus.DONE
 
+                _photoProperties.value = listPhotos
+                _albumProperties.value = listAlbums
                 _userProperties.value = listUsers
                 _commentProperties.value = listComments
                 _postProperties.value = listPosts
@@ -66,35 +78,28 @@ class OverviewViewModel : ViewModel() {
             catch(e: Exception) {
                 Log.d("Error_TryCatch",e.message.toString())
                 _status.value = AppStatus.ERROR
+                _photoProperties.value = ArrayList()
+                _albumProperties.value = ArrayList()
                 _userProperties.value = ArrayList()
                 _commentProperties.value = ArrayList()
                 _postProperties.value = ArrayList()
             }
+            setPosterName()
+            sortCommentsIntoLists()
+            attachCommentsToPosts()
+            attachAlbumsToUsers()
 
-            setPosterProperties()
-            sortCommentsIntoLists()     //new
-            attachCommentsToPosts()     //new
         }
     }
 
-    //TODO: Refactor, redo to pass UserProperty object instead of strings
-    private fun setPosterProperties() {
+    private fun setPosterName() {
         for(post in _postProperties.value!!) {
-            val user : UserProperty? = _userProperties.value?.get(post.userId.toInt()-1)
-            if(user != null) {
+            val user : UserProperty? = _userProperties.value!![post.userId.toInt()-1]
+            if (user != null)
                 post.posterName = user.username
-                post.posterEmail = user.email
-                post.posterWebsite = user.website
-                post.posterStreet = user.address.street
-                post.posterCity = user.address.city
-                post.posterZipcode = user.address.zipcode
-                post.posterGeoLatitude = user.address.geo.lat
-                post.posterGeoLongitude = user.address.geo.lng
-            }
         }
     }
 
-    // NEW:
     private fun sortCommentsIntoLists() {
         val aList : MutableList<MutableList<CommentProperty>> = arrayListOf()
 
@@ -108,7 +113,7 @@ class OverviewViewModel : ViewModel() {
 
         _commentsSorted.value = aList
     }
-    // NEW:
+
     private fun attachCommentsToPosts() {
         for(list in _commentsSorted.value!!) {
             _postProperties.value!![list[0].postId.toInt()-1].commentCount = list.toList().size
@@ -116,8 +121,32 @@ class OverviewViewModel : ViewModel() {
         }
     }
 
+    //TODO: Refactor this someway, there can't be so many loops in here
+    private fun attachAlbumsToUsers() {
+        val aList : MutableList<MutableList<PhotoProperty>> = arrayListOf()
+
+        for(album in _albumProperties.value!!)
+            aList.add(arrayListOf())
+
+        for(photo in _photoProperties.value!!)
+            aList[photo.albumId.toInt()-1].add(photo)
+
+        for(album in _albumProperties.value!!)
+            album.photos = aList[album.id.toInt()-1]
+
+        for(user in _userProperties.value!!) {
+            var list : MutableList<AlbumProperty> = ArrayList()
+            for(album in _albumProperties.value!!)
+                if(user.id == album.userId)
+                    list.add(album)
+
+            user.albums = list
+        }
+    }
+
     fun displayUserProperties(postProperty: PostProperty){
-        _navigateToUserProperty.value = postProperty
+        val userProperty : UserProperty = _userProperties.value!![postProperty.userId.toInt()-1]
+        _navigateToUserProperty.value = userProperty
     }
 
     fun displayUserPropertiesComplete(){
@@ -131,5 +160,6 @@ class OverviewViewModel : ViewModel() {
     fun displayCommentPropertiesComplete(){
         _navigateToCommentProperty.value = null
     }
+
 
 }

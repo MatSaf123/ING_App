@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".ui.CommentFragment">
+
+    <data>
+        <variable
+            name="photo"
+            type="com.msjtrs.ing_app.domain.PhotoProperty"/>
+        <variable
+            name="album"
+            type="com.msjtrs.ing_app.domain.AlbumProperty"/>
+
+    </data>
+
+    <!--    photo URL    -->
+    <ImageView
+        android:id="@+id/user_photo"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:scaleType="centerCrop"
+        android:adjustViewBounds="true"
+        android:padding="2dp"
+        app:imageUrl="@{photo.thumbnailUrl}"
+        tools:src="@tools:sample/backgrounds/scenic"/>
+
+
+
+</layout>

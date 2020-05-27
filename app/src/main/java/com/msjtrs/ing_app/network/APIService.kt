@@ -1,9 +1,7 @@
 package com.msjtrs.ing_app.network
 
 import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
-import com.msjtrs.ing_app.domain.CommentProperty
-import com.msjtrs.ing_app.domain.PostProperty
-import com.msjtrs.ing_app.domain.UserProperty
+import com.msjtrs.ing_app.domain.*
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 import kotlinx.coroutines.Deferred
@@ -38,6 +36,15 @@ interface APIService {
     fun getComments(@Query("postId_gte") gte : String, @Query("postId_lte") lte : String):
             Deferred<List<CommentProperty>>
 
+
+    @GET("/photos")
+    fun getPhotos():
+        Deferred<List<PhotoProperty>>
+
+    @GET("/albums")
+    fun getAlbums():
+        Deferred<List<AlbumProperty>>
+
 }
 
 object JsonplaceholderApi {
@@ -45,14 +52,3 @@ object JsonplaceholderApi {
         retrofit.create(APIService::class.java)
     }
 }
-
-/*
-    @GET("group/{id}/users")
-    Call<List<User>> groupList(@Path("id") int groupId, @QueryMap Map<String, String> options);
- */
-
-/*
-
-QUERY = http://jsonplaceholder.typicode.com/photos ?_start=0&_limit=5
-
- */

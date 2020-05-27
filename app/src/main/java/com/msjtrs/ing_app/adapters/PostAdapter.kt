@@ -10,7 +10,9 @@ import com.msjtrs.ing_app.domain.PostProperty
 import kotlinx.android.synthetic.main.grid_view_item.view.*
 
 
-class PostAdapter(private val usernameOnClickListener: UsernameOnClickListener,private  val onCommentsOnClickListener: CommentsOnClickListener) :
+class PostAdapter(
+    private val usernameOnClickListener: UsernameOnClickListener,
+    private  val onCommentsOnClickListener: CommentsOnClickListener) :
     ListAdapter<PostProperty, PostAdapter.PostViewHolder>(DiffCallback) {
 
     class PostViewHolder(private var binding : GridViewItemBinding) :
@@ -41,6 +43,7 @@ class PostAdapter(private val usernameOnClickListener: UsernameOnClickListener,p
         holder.itemView.id_comment.setOnClickListener {
             onCommentsOnClickListener.onClick(postProperty)
         }
+
 
     }
 
