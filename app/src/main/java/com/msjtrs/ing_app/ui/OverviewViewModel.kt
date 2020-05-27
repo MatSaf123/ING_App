@@ -84,18 +84,18 @@ class OverviewViewModel : ViewModel() {
                 _postProperties.value = ArrayList()
             }
 
-            setPosterProperties()
+            setPosterName()
             sortCommentsIntoLists()
             attachCommentsToPosts()
             attachAlbumsToUsers()
         }
     }
 
-    private fun setPosterProperties() {
+    private fun setPosterName() {
         for(post in _postProperties.value!!) {
             val user : UserProperty? = _userProperties.value!![post.userId.toInt()-1]
             if (user != null)
-                post.user = user
+                post.posterName = user.username
         }
     }
 
@@ -141,9 +141,6 @@ class OverviewViewModel : ViewModel() {
 
             user.albums = list
         }
-
-        for(post in _postProperties.value!!)
-            post.user.albums = _userProperties.value!![post.userId.toInt()-1].albums
     }
 
     fun displayUserProperties(postProperty: PostProperty){
