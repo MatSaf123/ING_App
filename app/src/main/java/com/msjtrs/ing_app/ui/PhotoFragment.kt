@@ -30,9 +30,9 @@ class PhotoFragment : Fragment() {
 
         binding.setLifecycleOwner(this)
 
-        val postProperty = PhotoFragmentArgs.fromBundle(arguments!!).selectedProperty
+        val userProperty = PhotoFragmentArgs.fromBundle(arguments!!).selectedProperty
 
-        val viewModelFactory = PhotoViewModelFactory(postProperty, application)
+        val viewModelFactory = PhotoViewModelFactory(userProperty, application)
 
         binding.viewModel = ViewModelProviders.of(this, viewModelFactory).get(PhotoViewModel::class.java)
 

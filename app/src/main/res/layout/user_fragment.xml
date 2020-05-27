@@ -9,7 +9,7 @@
             type="com.msjtrs.ing_app.ui.UserViewModel"/>
         <variable
             name="post"
-            type="com.msjtrs.ing_app.domain.PostProperty"/>
+            type="com.msjtrs.ing_app.domain.UserProperty"/>
     </data>
 
 
@@ -33,7 +33,7 @@
                 android:layout_height="30dp"
                 android:fontFamily="@font/roboto"
                 android:scaleType="centerCrop"
-                android:text="@{`Username: ` + viewModel.selectedProperty.user.username}"
+                android:text="@{`Username: ` + viewModel.selectedProperty.username}"
                 android:textSize="18sp"
                 tools:text="@string/user_username" />
 
@@ -44,7 +44,7 @@
                 android:layout_height="30dp"
                 android:fontFamily="@font/roboto"
                 android:scaleType="centerCrop"
-                android:text="@{`E-mail: ` + viewModel.selectedProperty.user.email}"
+                android:text="@{`E-mail: ` + viewModel.selectedProperty.email}"
                 android:textSize="18sp"
                 tools:text="@string/user_email" />
 
@@ -55,7 +55,7 @@
                 android:layout_height="30dp"
                 android:fontFamily="@font/roboto"
                 android:scaleType="centerCrop"
-                android:text="@{`Website: ` + viewModel.selectedProperty.user.website}"
+                android:text="@{`Website: ` + viewModel.selectedProperty.website}"
                 android:textSize="18sp"
                 tools:text="@string/user_website" />
 
@@ -66,7 +66,7 @@
                 android:layout_height="30dp"
                 android:fontFamily="@font/roboto"
                 android:scaleType="centerCrop"
-                android:text="@{`Street: ` + viewModel.selectedProperty.user.address.street}"
+                android:text="@{`Street: ` + viewModel.selectedProperty.address.street}"
                 android:textSize="18sp"
                 tools:text="@string/user_street" />
 
@@ -77,7 +77,7 @@
                 android:layout_height="30dp"
                 android:fontFamily="@font/roboto"
                 android:scaleType="centerCrop"
-                android:text="@{`City: ` + viewModel.selectedProperty.user.address.city}"
+                android:text="@{`City: ` + viewModel.selectedProperty.address.city}"
                 android:textSize="18sp"
                 tools:text="@string/user_city" />
 
@@ -88,7 +88,7 @@
                 android:layout_height="30dp"
                 android:fontFamily="@font/roboto"
                 android:scaleType="centerCrop"
-                android:text="@{`Zipcode: ` + viewModel.selectedProperty.user.address.zipcode}"
+                android:text="@{`Zipcode: ` + viewModel.selectedProperty.address.zipcode}"
                 android:textSize="18sp"
                 tools:text="@string/user_zipcode" />
 

@@ -14,7 +14,8 @@ data class PostProperty(
 ) : Parcelable {
 
     var commentCount : Int = 0
-    lateinit var user : UserProperty
+    //lateinit var user : UserProperty
+    lateinit var posterName : String
     lateinit var comments : List<CommentProperty>
     lateinit var photos : List<PhotoProperty>
 

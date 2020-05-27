@@ -43,8 +43,8 @@ class OverviewViewModel : ViewModel() {
     val albumProperties: LiveData<List<AlbumProperty>>
         get() = _albumProperties
 
-    private val _navigateToUserProperty = MutableLiveData<PostProperty>()
-    val navigateToUserProperty: LiveData<PostProperty>
+    private val _navigateToUserProperty = MutableLiveData<UserProperty>()
+    val navigateToUserProperty: LiveData<UserProperty>
         get() = _navigateToUserProperty
 
     private val _navigateToCommentProperty = MutableLiveData<PostProperty>()
@@ -73,10 +73,6 @@ class OverviewViewModel : ViewModel() {
                 _commentProperties.value = listComments
                 _postProperties.value = listPosts
 
-                setPosterProperties()
-                sortCommentsIntoLists()
-                attachCommentsToPosts()
-                attachAlbumsToUsers()
             }
             catch(e: Exception) {
                 Log.d("Error_TryCatch",e.message.toString())
@@ -88,14 +84,18 @@ class OverviewViewModel : ViewModel() {
                 _postProperties.value = ArrayList()
             }
 
+            setPosterName()
+            sortCommentsIntoLists()
+            attachCommentsToPosts()
+            attachAlbumsToUsers()
         }
     }
 
-    private fun setPosterProperties() {
+    private fun setPosterName() {
         for(post in _postProperties.value!!) {
             val user : UserProperty? = _userProperties.value!![post.userId.toInt()-1]
             if (user != null)
-                post.user = user
+                post.posterName = user.username
         }
     }
 
@@ -141,13 +141,11 @@ class OverviewViewModel : ViewModel() {
 
             user.albums = list
         }
-
-        for(post in _postProperties.value!!)
-            post.user.albums = _userProperties.value!![post.userId.toInt()-1].albums
     }
 
     fun displayUserProperties(postProperty: PostProperty){
-        _navigateToUserProperty.value = postProperty
+        val userProperty : UserProperty = _userProperties.value!![postProperty.userId.toInt()-1]
+        _navigateToUserProperty.value = userProperty
     }
 
     fun displayUserPropertiesComplete(){
