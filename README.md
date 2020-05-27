@@ -28,9 +28,9 @@ TODO:
 - [x] Dodanie fragmentu z informacjami o użytkowniku 
 - [x] Przerobienie wartości długości i szerokości geograficznej na widok z Google Maps
 - [x] Dodanie fragmentu na komentarze
-- [ ] Poprawienie działania i wyglądu fragmentu na komentarze
-- [ ] Dodanie fragmentu na zdjęcia użytkownika + połączenie go z guzikiem w profilu użytkownika
-- [ ] Dodanie menu z informacji o autorach + informacji o źródle assetów z internetu
+- [x] Poprawienie działania i wyglądu fragmentu na komentarze
+- [x] Dodanie fragmentu na zdjęcia użytkownika + połączenie go z guzikiem w profilu użytkownika
+- [x] Dodanie menu z informacji o autorach + informacji o źródle assetów z internetu
 - [ ] Dodanie testów
 - [ ] Stronicowanie postów
 - [ ] Rozszerzenie obsługi wyjątków
