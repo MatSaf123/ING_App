@@ -2,11 +2,14 @@ package com.msjtrs.ing_app.ui
 
 import android.os.Bundle
 import android.view.*
+import android.widget.AbsListView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.msjtrs.ing_app.R
 import com.msjtrs.ing_app.adapters.CommentAdapter
 import com.msjtrs.ing_app.adapters.PostAdapter
@@ -35,6 +38,8 @@ class OverviewFragment : Fragment(){
             PostAdapter.CommentsOnClickListener { viewModel.displayCommentProperties(it) }
         )
 
+        binding.postsList.addOnScrollListener(scrollListener)
+
         viewModel.navigateToUserProperty.observe(viewLifecycleOwner, Observer {
             if(null!= it){
                 this.findNavController().navigate(OverviewFragmentDirections.navigateToUser(it))
@@ -52,6 +57,43 @@ class OverviewFragment : Fragment(){
 
         return binding.root
     }
+
+    //TODO: OnScrollListener
+
+    var isScrolling = false
+
+    /**
+     * Scrolling and pagination function it has set of variables that will make the pagination as smooth
+     * as possible
+     */
+    val scrollListener = object : RecyclerView.OnScrollListener() {
+        override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
+            super.onScrolled(recyclerView, dx, dy)
+
+            val layoutManager = recyclerView.layoutManager as GridLayoutManager
+            val firstVisibleItemPosition = layoutManager.findFirstVisibleItemPosition()
+            val visibleItemCount = layoutManager.childCount
+            val totalItemCount = layoutManager.itemCount
+
+            val isAtLastItem = firstVisibleItemPosition + visibleItemCount >= totalItemCount
+            val isNotAtBeginning = firstVisibleItemPosition >= 0
+            val isTotalMoreThenVisible = totalItemCount >= 10
+            val shouldPaginate =  isAtLastItem && isNotAtBeginning && isTotalMoreThenVisible && isScrolling
+            if(shouldPaginate){
+                viewModel.postPagingLimit += 10
+                viewModel.getData(0,viewModel.postPagingLimit)
+                isScrolling = false
+            }
+        }
+
+        override fun onScrollStateChanged(recyclerView: RecyclerView, newState: Int) {
+            super.onScrollStateChanged(recyclerView, newState)
+            if(newState == AbsListView.OnScrollListener.SCROLL_STATE_TOUCH_SCROLL){
+                isScrolling = true
+            }
+        }
+    }
+
 
     override fun onCreate(savedInstanceState: Bundle?){
         setHasOptionsMenu(true)

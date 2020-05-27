@@ -1,11 +1,10 @@
 package com.msjtrs.ing_app.ui
 
+import android.app.Application
 import android.util.Log
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
+import android.widget.Toast
+import androidx.lifecycle.*
 import com.msjtrs.ing_app.network.JsonplaceholderApi
-import androidx.lifecycle.viewModelScope
 import com.msjtrs.ing_app.domain.*
 import kotlinx.coroutines.launch
 import java.lang.Exception
@@ -51,14 +50,13 @@ class OverviewViewModel : ViewModel() {
     val navigateToCommentProperty: LiveData<PostProperty>
         get() = _navigateToCommentProperty
 
+    internal var postPagingLimit : Int = 10
 
     init {
-        _postProperties.value = arrayListOf()
-        _commentProperties.value = arrayListOf()
-        getData(0,10)
+        getData(0,postPagingLimit)
     }
 
-    private fun getData(bot : Int, top : Int) {
+    internal fun getData(bot : Int, top : Int) {
         viewModelScope.launch {
             try {
                 _status.value = AppStatus.LOADING
@@ -73,8 +71,8 @@ class OverviewViewModel : ViewModel() {
                 _photoProperties.value = listPhotos
                 _albumProperties.value = listAlbums
                 _userProperties.value = listUsers
-                _commentProperties.value = _commentProperties.value?.plus(listComments)
-                _postProperties.value = _postProperties.value?.plus(listPosts)
+                _commentProperties.value = listComments
+                _postProperties.value = listPosts
 
             }
             catch(e: Exception) {
@@ -104,15 +102,12 @@ class OverviewViewModel : ViewModel() {
 
     private fun sortCommentsIntoLists() {
         val aList : MutableList<MutableList<CommentProperty>> = arrayListOf()
-
         for(post in _postProperties.value!!) {
             aList.add(post.id.toInt()-1, arrayListOf())
         }
-
         for(comment in _commentProperties.value!!) {
             aList[comment.postId.toInt()-1].add(comment)
         }
-
         _commentsSorted.value = aList
     }
 
