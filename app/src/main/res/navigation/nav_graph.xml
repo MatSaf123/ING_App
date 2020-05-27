@@ -36,7 +36,7 @@
         tools:layout="@layout/user_fragment" >
         <argument
             android:name="selectedProperty"
-            app:argType="com.msjtrs.ing_app.domain.PostProperty"/>
+            app:argType="com.msjtrs.ing_app.domain.UserProperty"/>
         <action
             android:id="@+id/navigate_to_photos"
             app:destination="@+id/photosFragment"/>
@@ -50,7 +50,7 @@
         tools:layout="@layout/photo_fragment" >
         <argument
             android:name="selectedProperty"
-            app:argType="com.msjtrs.ing_app.domain.PostProperty"/>
+            app:argType="com.msjtrs.ing_app.domain.UserProperty"/>
     </fragment>
 
 

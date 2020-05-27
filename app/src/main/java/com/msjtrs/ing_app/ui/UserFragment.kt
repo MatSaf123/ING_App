@@ -45,22 +45,22 @@ class UserFragment : Fragment(), OnMapReadyCallback {
                               savedInstanceState: Bundle?): View? {
 
         val userGeoLocation = UserFragmentArgs.fromBundle(requireArguments()).selectedProperty
-        userLatitude = userGeoLocation.user.address.geo.lat.toDouble()
-        userLongitude = userGeoLocation.user.address.geo.lng.toDouble()
+        userLatitude = userGeoLocation.address.geo.lat.toDouble()
+        userLongitude = userGeoLocation.address.geo.lng.toDouble()
 
         val application = requireNotNull(activity).application
         val binding = UserFragmentBinding.inflate(inflater)
 
         binding.setLifecycleOwner(this)
 
-        val postProperty = UserFragmentArgs.fromBundle(arguments!!).selectedProperty
+        val userProperty = UserFragmentArgs.fromBundle(arguments!!).selectedProperty
 
-        val viewModelFactory = UserViewModelFactory(postProperty, application)
+        val viewModelFactory = UserViewModelFactory(userProperty, application)
 
         binding.viewModel = ViewModelProviders.of(this, viewModelFactory).get(UserViewModel::class.java)
 
         binding.userPhotos.setOnClickListener{
-            viewModel.displayPhotoProperties(postProperty)
+            viewModel.displayPhotoProperties(userProperty)
         }
 
         viewModel.navigateToPhotoProperty.observe(viewLifecycleOwner, Observer {
