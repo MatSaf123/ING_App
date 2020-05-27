@@ -53,6 +53,8 @@ class OverviewViewModel : ViewModel() {
 
 
     init {
+        //_postProperties.value = arrayListOf()
+        //_commentProperties.value = arrayListOf()
         getData(0,10)
     }
 
@@ -68,11 +70,19 @@ class OverviewViewModel : ViewModel() {
 
                 _status.value = AppStatus.DONE
 
+
                 _photoProperties.value = listPhotos
                 _albumProperties.value = listAlbums
                 _userProperties.value = listUsers
-                _commentProperties.value = listComments
                 _postProperties.value = listPosts
+                _commentProperties.value = listComments
+                //_commentProperties.value = _commentProperties.value?.plus(listComments)
+                //_postProperties.value = _postProperties.value?.plus(listPosts)
+                
+                setPosterName()
+                sortCommentsIntoLists()
+                attachCommentsToPosts()
+                attachAlbumsToUsers()
 
             }
             catch(e: Exception) {
@@ -84,10 +94,6 @@ class OverviewViewModel : ViewModel() {
                 _commentProperties.value = ArrayList()
                 _postProperties.value = ArrayList()
             }
-            setPosterName()
-            sortCommentsIntoLists()
-            attachCommentsToPosts()
-            attachAlbumsToUsers()
 
         }
     }
