@@ -73,6 +73,10 @@ class OverviewViewModel : ViewModel() {
                 _commentProperties.value = listComments
                 _postProperties.value = listPosts
 
+                setPosterProperties()
+                sortCommentsIntoLists()
+                attachCommentsToPosts()
+                attachAlbumsToUsers()
             }
             catch(e: Exception) {
                 Log.d("Error_TryCatch",e.message.toString())
@@ -84,12 +88,6 @@ class OverviewViewModel : ViewModel() {
                 _postProperties.value = ArrayList()
             }
 
-            setPosterProperties()
-            sortCommentsIntoLists()
-            attachCommentsToPosts()
-            attachAlbumsToUsers()
-
-            Log.d("dev",userProperties.value!![6].albums[2].photos[10].title)      //photos debug-test = "rerum doloremque occaecati reiciendis"
         }
     }
 
