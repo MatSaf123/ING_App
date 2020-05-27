@@ -53,36 +53,28 @@ class OverviewViewModel : ViewModel() {
 
 
     init {
-        //_postProperties.value = arrayListOf()
-        //_commentProperties.value = arrayListOf()
+        _postProperties.value = arrayListOf()
+        _commentProperties.value = arrayListOf()
         getData(0,10)
     }
 
-    private fun getData(botID : Int, topID : Int) {
+    private fun getData(bot : Int, top : Int) {
         viewModelScope.launch {
             try {
                 _status.value = AppStatus.LOADING
                 val listUsers = JsonplaceholderApi.retrofitService.getUsers().await()
-                val listPosts = JsonplaceholderApi.retrofitService.getPosts(botID.toString(),topID.toString()).await()
-                val listComments = JsonplaceholderApi.retrofitService.getComments(botID.toString(),topID.toString()).await()
+                val listPosts = JsonplaceholderApi.retrofitService.getPosts(bot.toString(),top.toString()).await()
+                val listComments = JsonplaceholderApi.retrofitService.getComments(bot.toString(),top.toString()).await()    //will work only if posts and comments are in order by id
                 val listPhotos = JsonplaceholderApi.retrofitService.getPhotos().await()
                 val listAlbums = JsonplaceholderApi.retrofitService.getAlbums().await()
 
                 _status.value = AppStatus.DONE
 
-
                 _photoProperties.value = listPhotos
                 _albumProperties.value = listAlbums
                 _userProperties.value = listUsers
-                _postProperties.value = listPosts
-                _commentProperties.value = listComments
-                //_commentProperties.value = _commentProperties.value?.plus(listComments)
-                //_postProperties.value = _postProperties.value?.plus(listPosts)
-                
-                setPosterName()
-                sortCommentsIntoLists()
-                attachCommentsToPosts()
-                attachAlbumsToUsers()
+                _commentProperties.value = _commentProperties.value?.plus(listComments)
+                _postProperties.value = _postProperties.value?.plus(listPosts)
 
             }
             catch(e: Exception) {
@@ -95,6 +87,10 @@ class OverviewViewModel : ViewModel() {
                 _postProperties.value = ArrayList()
             }
 
+            setPosterName()
+            sortCommentsIntoLists()
+            attachCommentsToPosts()
+            attachAlbumsToUsers()
         }
     }
 
