@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">ING_APP</string>
+    <string name="app_name">ING Application</string>
     <string name="show_info">About app</string>
     <string name="display_type">For %s</string>
     <string name="id">id: </string>
