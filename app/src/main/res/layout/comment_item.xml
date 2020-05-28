@@ -19,42 +19,86 @@
         android:padding="6dp">
 
         <!--    comment name    -->
-        <TextView
-            android:id="@+id/comment_name"
-            android:layout_width="match_parent"
+        <GridLayout
+            android:id="@+id/id_name"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/roboto"
-            android:scaleType="centerCrop"
-            android:text="@{`Name: ` + comment.name}"
-            android:textSize="16sp"
-            tools:text="@string/comment_name" />
+            android:orientation="horizontal"
+            android:useDefaultMargins="true">
+
+            <!-- user image -->
+            <ImageView
+                android:id="@+id/name_image"
+                android:layout_width="15dp"
+                android:layout_height="15dp"
+                android:layout_gravity="center_horizontal|center_vertical"
+                android:contentDescription="@string/name_image"
+                app:srcCompat="@drawable/ic_comment_name"
+                tools:src="@drawable/ic_comment_name" />
+
+            <!-- user text -->
+            <TextView
+                android:id="@+id/comment_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/roboto"
+                android:scaleType="centerCrop"
+                android:text="@{comment.name}"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                tools:text="@string/comment_name" />
+        </GridLayout>
 
         <!--    comment e-mail    -->
-        <TextView
-            android:id="@+id/comment_email"
-            android:layout_width="match_parent"
+        <GridLayout
+            android:id="@+id/id_email"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/roboto"
-            android:scaleType="centerCrop"
-            android:text="@{`E-mail: ` + comment.email}"
-            android:textSize="16sp"
-            tools:text="@string/comment_email" />
+            android:orientation="horizontal"
+            android:useDefaultMargins="true">
+
+            <!-- user image -->
+            <ImageView
+                android:id="@+id/comment_image"
+                android:layout_width="15dp"
+                android:layout_height="15dp"
+                android:layout_gravity="center_horizontal|center_vertical"
+                android:contentDescription="@string/email_image"
+                app:srcCompat="@drawable/ic_email"
+                tools:src="@drawable/ic_email" />
+
+            <!-- user text -->
+            <TextView
+                android:id="@+id/comment_email"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/roboto"
+                android:scaleType="centerCrop"
+                android:text="@{comment.email}"
+                android:textSize="15sp"
+                tools:text="@string/comment_email" />
+        </GridLayout>
 
         <!--    comment body    -->
         <TextView
             android:id="@+id/comment_body"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginStart="30dp"
             android:fontFamily="@font/roboto"
             android:scaleType="centerCrop"
-            android:text="@{`Body: ` + comment.body}"
-            android:textSize="16sp"
+            android:text="@{comment.body}"
+            android:textSize="14sp"
+            android:textStyle="italic"
+            android:typeface="normal"
             tools:text="@string/comment_body" />
 
         <!--    divider (gray horizontal line)    -->
         <View
             style="@style/Divider"
-            android:layout_margin="10dp" />
+            android:layout_gravity="center_horizontal"
+            android:layout_marginStart="6dp"
+            android:layout_marginTop="16dp" />
 
     </LinearLayout>
 
