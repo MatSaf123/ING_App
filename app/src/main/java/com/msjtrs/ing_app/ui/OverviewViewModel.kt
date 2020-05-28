@@ -53,16 +53,16 @@ class OverviewViewModel : ViewModel() {
     internal var postPagingLimit : Int = 10
 
     init {
-        getData(0,postPagingLimit)
+        getData(postPagingLimit)
     }
 
-    internal fun getData(bot : Int, top : Int) {
+    internal fun getData(top : Int) {
         viewModelScope.launch {
             try {
                 _status.value = AppStatus.LOADING
                 val listUsers = JsonplaceholderApi.retrofitService.getUsers().await()
-                val listPosts = JsonplaceholderApi.retrofitService.getPosts(bot.toString(),top.toString()).await()
-                val listComments = JsonplaceholderApi.retrofitService.getComments(bot.toString(),top.toString()).await()    //will work only if posts and comments are in order by id
+                val listPosts = JsonplaceholderApi.retrofitService.getPosts(top.toString()).await()
+                val listComments = JsonplaceholderApi.retrofitService.getComments(top.toString()).await()    //will work only if posts and comments are in order by id
                 val listPhotos = JsonplaceholderApi.retrofitService.getPhotos().await()
                 val listAlbums = JsonplaceholderApi.retrofitService.getAlbums().await()
 

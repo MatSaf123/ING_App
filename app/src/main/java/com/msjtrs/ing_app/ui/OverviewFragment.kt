@@ -9,6 +9,7 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.msjtrs.ing_app.R
 import com.msjtrs.ing_app.adapters.CommentAdapter
@@ -58,19 +59,21 @@ class OverviewFragment : Fragment(){
         return binding.root
     }
 
-    //TODO: OnScrollListener
+    //TODO: Analize this code
+    //TODO: Redo this code
+    //TODO: Make the screen not go up when new list is loading
+    //TODO: Add to list instead of = (??)
+    //TODO: Animation could be on the bottom of screen
+    //TODO: Why the f does it take so long to download data?
+    //when last user is reached, nothing happens when trying to download (except going up, lol)
 
     var isScrolling = false
 
-    /**
-     * Scrolling and pagination function it has set of variables that will make the pagination as smooth
-     * as possible
-     */
     val scrollListener = object : RecyclerView.OnScrollListener() {
         override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
             super.onScrolled(recyclerView, dx, dy)
 
-            val layoutManager = recyclerView.layoutManager as GridLayoutManager
+            val layoutManager = recyclerView.layoutManager as LinearLayoutManager
             val firstVisibleItemPosition = layoutManager.findFirstVisibleItemPosition()
             val visibleItemCount = layoutManager.childCount
             val totalItemCount = layoutManager.itemCount
@@ -81,7 +84,7 @@ class OverviewFragment : Fragment(){
             val shouldPaginate =  isAtLastItem && isNotAtBeginning && isTotalMoreThenVisible && isScrolling
             if(shouldPaginate){
                 viewModel.postPagingLimit += 10
-                viewModel.getData(0,viewModel.postPagingLimit)
+                viewModel.getData(viewModel.postPagingLimit)
                 isScrolling = false
             }
         }

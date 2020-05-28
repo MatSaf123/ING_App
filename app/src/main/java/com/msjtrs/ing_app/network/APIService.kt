@@ -35,7 +35,7 @@ private val retrofit = Retrofit.Builder()
 
 interface APIService {
     @GET("/posts")
-    fun getPosts(@Query("_start") a : String, @Query("_end") b : String):
+    fun getPosts(@Query("_end") b : String):
             Deferred<List<PostProperty>>
 
     // alt: id_gte, id_lte
@@ -45,7 +45,7 @@ interface APIService {
             Deferred<List<UserProperty>>
 
     @GET("/comments")
-    fun getComments(@Query("postId_gte") a : String, @Query("postId_lte") b : String):
+    fun getComments(@Query("postId_lte") b : String):
             Deferred<List<CommentProperty>>
 
 
