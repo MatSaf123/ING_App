@@ -26,7 +26,7 @@ val okHttpClient : OkHttpClient = OkHttpClient()
     .writeTimeout(15, TimeUnit.SECONDS)
     .build()
 
-private val retrofit = Retrofit.Builder()
+val retrofit = Retrofit.Builder()
     .addConverterFactory(MoshiConverterFactory.create(moshi))
     .addCallAdapterFactory(CoroutineCallAdapterFactory())
     .baseUrl(BASE_URL)
