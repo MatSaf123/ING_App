@@ -35,9 +35,11 @@ TODO:
 - [x] Dodanie fragmentu na zdjęcia użytkownika + połączenie go z guzikiem w profilu użytkownika
 - [x] Dodanie menu z informacji o autorach + informacji o źródle assetów z internetu
 - [ ] Dodanie testów
-- [ ] Stronicowanie postów
+- [x] Stronicowanie postów*
 - [ ] Rozszerzenie obsługi wyjątków
 - [x] Ogólne prace związane z poprawą wyglądu aplikacji
+
+* implementacja stronicowania postów okazała się problematyczna ze względu na długie czasy oczekiwań przy żądaniach do REST API, z tego powodu zaimplementowana jest jej wersja okrojona i uproszczona.
 
 <br /><hr /><br />
 
