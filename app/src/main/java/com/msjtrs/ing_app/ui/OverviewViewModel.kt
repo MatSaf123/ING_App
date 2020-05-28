@@ -8,6 +8,7 @@ import com.msjtrs.ing_app.network.JsonplaceholderApi
 import com.msjtrs.ing_app.domain.*
 import kotlinx.coroutines.launch
 import java.lang.Exception
+import java.lang.Thread.sleep
 import kotlin.collections.ArrayList
 
 enum class AppStatus { LOADING, ERROR, DONE }
@@ -21,6 +22,10 @@ class OverviewViewModel : ViewModel() {
     private val _postProperties = MutableLiveData<List<PostProperty>>()
     val postProperties: LiveData<List<PostProperty>>
         get() = _postProperties
+
+    private val _postPropertiesPaged = MutableLiveData<List<PostProperty>>()
+    val postPropertiesPaged: LiveData<List<PostProperty>>
+        get() = _postPropertiesPaged
 
     private val _userProperties = MutableLiveData<List<UserProperty>>()
     val userProperties: LiveData<List<UserProperty>>
@@ -50,19 +55,25 @@ class OverviewViewModel : ViewModel() {
     val navigateToCommentProperty: LiveData<PostProperty>
         get() = _navigateToCommentProperty
 
-    internal var postPagingLimit : Int = 10
+    private var postPagingLimit : Int = 10
 
     init {
-        getData(postPagingLimit)
+        _postPropertiesPaged.value = arrayListOf()
+        getData()
     }
 
-    internal fun getData(top : Int) {
+    private fun getData() {
         viewModelScope.launch {
             try {
                 _status.value = AppStatus.LOADING
                 val listUsers = JsonplaceholderApi.retrofitService.getUsers().await()
-                val listPosts = JsonplaceholderApi.retrofitService.getPosts(top.toString()).await()
-                val listComments = JsonplaceholderApi.retrofitService.getComments(top.toString()).await()    //will work only if posts and comments are in order by id
+
+                //response times are too long:
+                //val listPosts = JsonplaceholderApi.retrofitService.getPosts(10).await()
+                //val listComments = JsonplaceholderApi.retrofitService.getComments(10).await()    //will work only if posts and comments are in order by id
+
+                val listPosts = JsonplaceholderApi.retrofitService.getPosts().await()
+                val listComments = JsonplaceholderApi.retrofitService.getComments().await()
                 val listPhotos = JsonplaceholderApi.retrofitService.getPhotos().await()
                 val listAlbums = JsonplaceholderApi.retrofitService.getAlbums().await()
 
@@ -89,6 +100,17 @@ class OverviewViewModel : ViewModel() {
             sortCommentsIntoLists()
             attachCommentsToPosts()
             attachAlbumsToUsers()
+            loadMorePosts()
+        }
+    }
+
+    internal fun loadMorePosts() : Boolean {
+        return try{
+            _postPropertiesPaged.value = _postProperties.value!!.subList(0,postPagingLimit)
+            postPagingLimit +=10
+            true
+        } catch(e: Exception) {
+            false
         }
     }
 
@@ -118,7 +140,6 @@ class OverviewViewModel : ViewModel() {
         }
     }
 
-    //TODO: Refactor this someway, there can't be so many loops in here
     private fun attachAlbumsToUsers() {
         val aList : MutableList<MutableList<PhotoProperty>> = arrayListOf()
 
@@ -157,6 +178,5 @@ class OverviewViewModel : ViewModel() {
     fun displayCommentPropertiesComplete(){
         _navigateToCommentProperty.value = null
     }
-
 
 }

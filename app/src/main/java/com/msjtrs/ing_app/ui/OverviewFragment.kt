@@ -1,6 +1,7 @@
 package com.msjtrs.ing_app.ui
 
 import android.os.Bundle
+import android.util.Log
 import android.view.*
 import android.widget.AbsListView
 import android.widget.Toast
@@ -8,13 +9,10 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.fragment.findNavController
-import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.msjtrs.ing_app.R
-import com.msjtrs.ing_app.adapters.CommentAdapter
 import com.msjtrs.ing_app.adapters.PostAdapter
-import com.msjtrs.ing_app.adapters.UserAdapter
 import com.msjtrs.ing_app.databinding.FragmentOverviewBinding
 
 
@@ -39,7 +37,7 @@ class OverviewFragment : Fragment(){
             PostAdapter.CommentsOnClickListener { viewModel.displayCommentProperties(it) }
         )
 
-        binding.postsList.addOnScrollListener(scrollListener)
+        binding.postsList.addOnScrollListener(onScrollListener)
 
         viewModel.navigateToUserProperty.observe(viewLifecycleOwner, Observer {
             if(null!= it){
@@ -55,36 +53,30 @@ class OverviewFragment : Fragment(){
             }
         })
 
-
         return binding.root
     }
 
-    //TODO: Analize this code
-    //TODO: Redo this code
-    //TODO: Make the screen not go up when new list is loading
-    //TODO: Add to list instead of = (??)
-    //TODO: Animation could be on the bottom of screen
-    //TODO: Why the f does it take so long to download data?
-    //when last user is reached, nothing happens when trying to download (except going up, lol)
-
     var isScrolling = false
-
-    val scrollListener = object : RecyclerView.OnScrollListener() {
+    private val onScrollListener = object : RecyclerView.OnScrollListener() {
         override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
             super.onScrolled(recyclerView, dx, dy)
-
             val layoutManager = recyclerView.layoutManager as LinearLayoutManager
             val firstVisibleItemPosition = layoutManager.findFirstVisibleItemPosition()
             val visibleItemCount = layoutManager.childCount
             val totalItemCount = layoutManager.itemCount
 
-            val isAtLastItem = firstVisibleItemPosition + visibleItemCount >= totalItemCount
-            val isNotAtBeginning = firstVisibleItemPosition >= 0
-            val isTotalMoreThenVisible = totalItemCount >= 10
-            val shouldPaginate =  isAtLastItem && isNotAtBeginning && isTotalMoreThenVisible && isScrolling
-            if(shouldPaginate){
-                viewModel.postPagingLimit += 10
-                viewModel.getData(viewModel.postPagingLimit)
+            val lastItem = firstVisibleItemPosition + visibleItemCount >= totalItemCount
+            val notAtBeginning = firstVisibleItemPosition >= 0
+            val moreThanVisible = totalItemCount >= 10
+            val checkIfToLoad =  lastItem && notAtBeginning && moreThanVisible && isScrolling
+
+            if(checkIfToLoad) {
+                val message : String
+                if(viewModel.loadMorePosts())
+                    message = "Loading more posts!"
+                else
+                    message  = "No more posts to load"
+                Toast.makeText(context, message, Toast.LENGTH_SHORT).show()
                 isScrolling = false
             }
         }
@@ -96,7 +88,6 @@ class OverviewFragment : Fragment(){
             }
         }
     }
-
 
     override fun onCreate(savedInstanceState: Bundle?){
         setHasOptionsMenu(true)
@@ -125,6 +116,4 @@ class OverviewFragment : Fragment(){
 
         return super.onOptionsItemSelected(item)
     }
-
-
 }

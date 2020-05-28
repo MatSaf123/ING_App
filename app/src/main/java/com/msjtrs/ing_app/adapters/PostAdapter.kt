@@ -36,7 +36,7 @@ class PostAdapter(
     override fun onBindViewHolder(holder: PostViewHolder, position: Int) {
         val postProperty = getItem(position)
 
-        holder.bind(postProperty)       //mozna tu liste dac
+        holder.bind(postProperty)
         holder.itemView.id_user.setOnClickListener {
             usernameOnClickListener.onClick(postProperty)
         }
