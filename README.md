@@ -1,17 +1,17 @@
 ﻿# Profile Display App
 
 ## SCREENY
-<img src = "https://github.com/MatSaf123/ING_App/blob/master/app_gif.gif"
-data-canonical-src = "https://github.com/MatSaf123/ING_App/blob/master/app_gif.gif" width="331" height="700" />
+<img src = "https://github.com/MatSaf123/ING_App/blob/master/app_gif_2.gif"
+data-canonical-src = "https://github.com/MatSaf123/ING_App/blob/master/app_gif_2.gif" width="331" height="700" />
    
-<img src = "https://i.imgur.com/KTYaZUc.jpg"
-data-canonical-src = "https://i.imgur.com/KTYaZUc.jpg" width="331" height="700" />
-<img src = "https://i.imgur.com/EpgQAKQ.jpg"
-data-canonical-src = "https://i.imgur.com/EpgQAKQ.jpg" width="331" height="700" />
+<img src = "https://i.imgur.com/H73EZTX.jpg"
+data-canonical-src = "https://i.imgur.com/H73EZTX.jpg" width="331" height="700" />
+<img src = "https://i.imgur.com/8yjspc4.jpg"
+data-canonical-src = "https://i.imgur.com/8yjspc4.jpg" width="331" height="700" />
 <img src = "https://i.imgur.com/sTNj3iN.jpg"
 data-canonical-src = "https://i.imgur.com/sTNj3iN.jpg" width="331" height="700" /> 
-<img src = "https://i.imgur.com/SGdNhPU.jpg"
-data-canonical-src = "https://i.imgur.com/SGdNhPU.jpg" width="331" height="700" />
+<img src = "https://i.imgur.com/qKOUW4Q.jpg"
+data-canonical-src = "https://i.imgur.com/qKOUW4Q.jpg" width="331" height="700" />
 <img src = "https://i.imgur.com/Tnntv9s.jpg"
 data-canonical-src = "https://i.imgur.com/Tnntv9s.jpg" width="331" height="700" />
    
