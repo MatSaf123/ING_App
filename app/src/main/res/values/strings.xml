@@ -24,5 +24,7 @@
 
     <!--    MAPS    -->
     <string name="google_maps_key" templateMergeStrategy="preserve" translatable="false">AIzaSyDoHg_DZavRaNYX6275NRmU851fhdxedb0</string>
+    <string name="email_image" />
+    <string name="name_image" />
 
 </resources>

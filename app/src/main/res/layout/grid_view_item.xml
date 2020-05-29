@@ -108,14 +108,14 @@
             <!-- body text -->
             <TextView
                 android:id="@+id/body_text"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:adjustViewBounds="true"
                 android:fontFamily="@font/roboto_thin"
                 android:scaleType="centerCrop"
                 android:text="@{post.component4()}"
                 android:textSize="14sp"
-                tools:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sagittis gravida leo ut tincidunt. Quisque rhoncus euismod risus nec fermentum."/>
+                tools:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sagittis gravida leo ut tincidunt. Quisque rhoncus euismod risus nec fermentum." />
         </GridLayout>
 
         <!-- COMMENT -->
@@ -145,7 +145,7 @@
         <View
             style="@style/Divider"
             android:layout_gravity="center"
-            android:layout_margin="10dp" />
+            android:layout_marginTop="10dp" />
 
     </LinearLayout>
 </layout>
