@@ -1,6 +1,6 @@
-﻿# Profile Display App
+﻿# Android-Kotlin-MVVM Profile Display App
 
-## SCREENY
+## SCREENS:
 <img src = "https://github.com/MatSaf123/ING_App/blob/master/app_gif_2.gif"
 data-canonical-src = "https://github.com/MatSaf123/ING_App/blob/master/app_gif_2.gif" width="331" height="700" />
    
@@ -16,33 +16,25 @@ data-canonical-src = "https://i.imgur.com/qKOUW4Q.jpg" width="331" height="700" 
 data-canonical-src = "https://i.imgur.com/Tnntv9s.jpg" width="331" height="700" />
    
 
+### APPLICATION SUMMARY:
 
-### OBECNY ETAP PROJEKTU
-
-Działa wyświetlanie wszystkich postów - nazwy użytkownika który je zapostował, tytuł posta, treść(ciało) posta oraz liczba komentarzy dla danego posta.
-
-Po kliknięciu w nazwę autora postu przenosi się do fragmentu wyświetlającego nazwę użytkownika, e-mail, stronę internetową, ulicę, miasto, kod pocztowy, fragment mapy (Google Maps) z zaznaczoną lokalizacją użytkownika. Po kliknięciu w napis 'Photos' aplikacja przenosi do fragmentu ze zdjęciami użytkownika.
-
-Po kliknięciu w napis 'Comments' aplikacja przenosi do wszystkich komentarzy danego posta.
-
-W przypadku błędu przy próbie pobrania danych z API, aplikacja wyrzuca komunikat o błędzie.
+Application requests data from fake REST API (https://jsonplaceholder.typicode.com) and presents it to the user in form of a scrollable list. Elements of the list - Posts - contain author's name, post title, body and number of comments attached to the post. Clicking in author's name presents user-detail screen with info about him, his personal data, his geolocation and a button navigating to user's galery of photos. Clicking in comments count navigates to a scrollable list of comments relating to the post.
+In case of no internet connection or any other exception, an error-screen will show up.
 
 TODO:
-- [x] Sprawienie aby klikalna była nazwa użytkownika, nie cały post
-- [x] Dodanie fragmentu z informacjami o użytkowniku 
-- [x] Przerobienie wartości długości i szerokości geograficznej na widok z Google Maps
-- [x] Dodanie fragmentu na komentarze
-- [x] Dodanie fragmentu na zdjęcia użytkownika + połączenie go z guzikiem w profilu użytkownika
-- [x] Dodanie menu z informacji o autorach + informacji o źródle assetów z internetu
-- [ ] Dodanie testów
-- [x] Stronicowanie postów*
-- [ ] Rozszerzenie obsługi wyjątków
-- [x] Ogólne prace związane z poprawą wyglądu aplikacji
+- [x] Setting an onClickListener for the author's name
+- [x] Implementing user-detail fragment
+- [x] Mapping geo data and presenting it in form of a Google Map
+- [x] Implementing comments fragment
+- [x] Implementing user's photos-fragment accessible from his profile
+- [x] Implementing app-authors info button 
+- [x] Pagination*
+- [x] Frontend improvement
+- [ ] Adding tests
 
-* implementacja stronicowania postów okazała się problematyczna ze względu na długie czasy oczekiwań przy żądaniach do REST API, z tego powodu zaimplementowana jest jej wersja okrojona i uproszczona.
+* because of long awaiting times during REST API requests, the pagination has been simplified and implemented only for training purposes.
 
 <br /><hr /><br />
-
 
 Project consisting of displaying various information from API - https://jsonplaceholder.typicode.com/
 
